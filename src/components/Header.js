@@ -2,6 +2,7 @@ import React from 'react';
 import Button from "@material-ui/core/Button";
 import PhoneEnabledOutlinedIcon from '@material-ui/icons/PhoneEnabledOutlined';
 import {Container,Navbar,Nav} from "react-bootstrap";
+import {Link} from 'react-router-dom';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
@@ -28,11 +29,13 @@ const Header = () => {
                     <Nav className="tabs ml-auto">
                         <Nav.Link className="nav-link" href="/">Home</Nav.Link>
                         <Nav.Link className="nav-link" href="/about">About Us</Nav.Link>
-                        <Nav.Link className="nav-link" href="#link">Doctors</Nav.Link>
-                        <Nav.Link className="nav-link" href="#link">News</Nav.Link>
-                        <Nav.Link className="nav-link" href="#link">Contact</Nav.Link>
+                        <Nav.Link className="nav-link" href="/doctors">Doctors</Nav.Link>
+                        <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
+                        <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
                     </Nav>
-                    <Button className="appointment ml-auto" variant="contained" color="primary">Make an appointment</Button>
+                    <Link to="/appointment">
+                        <Button className="appointment ml-auto" variant="contained" color="primary">Make an appointment</Button>
+                        </Link>
                 </Navbar.Collapse>
                 </Navbar>
             </Container>
