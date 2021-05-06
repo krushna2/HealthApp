@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+body {
+    background: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+.header1{
+    border-width: 0.5px;
+    height: 45px;
+    font-size: small;
+}
+.header1_outline{
+    border-bottom: 1px solid#f2f2f2;
+}
+.welcome{
+    font-size: 15px;
+}
+.nav-item{
+    border-left: 1px solid #f2f2f2;
+}
+.tabs{
+    font-weight: bold;
+}
+.nav-link{
+    margin-right: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.caption-heading{
+    font-weight: bold;
+    font-size:5vw;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.car-img{
+    height: 650px;
+    filter: blur(10px);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.img-caption{
+    top:35vh;
 }
-
-.App-link {
-  color: #61dafb;
+.about{
+    background: url(./images/about-bg.jpg) no-repeat top center;
+    background-size:cover;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    width: 100%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.figure{
+    display:inline;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+.author-img{
+    border-radius: 50%;
+    width: 5vw;
+}
+.fadeInUp{
+    animation-name: fadeInUp;
+}
+.animated{
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
