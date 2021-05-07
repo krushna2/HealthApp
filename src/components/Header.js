@@ -33,8 +33,8 @@ const Header = () => {
                         <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
                         <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
                     </Nav>
-                    <Link to="/appointment">
-                        <Button className="appointment ml-auto" variant="contained" color="primary">Make an appointment</Button>
+                    <Link style={{textDecoration:"none"}} to="/appointment">
+                        <Button style={{backgroundColor:"#a5c422",color:"white"}} className="appointment ml-auto" variant="contained">Make an appointment</Button>
                         </Link>
                 </Navbar.Collapse>
                 </Navbar>

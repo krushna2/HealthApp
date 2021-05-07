@@ -17,7 +17,7 @@ const Home = () => {
                     />
                     <Carousel.Caption className="img-caption">
                          <h1 className="caption-heading">Healthy Livings</h1>
-                         <Button variant="contained" color="primary">Meet Doctors</Button>
+                         <Button style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">Meet Doctors</Button>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item className="car-item">
@@ -29,7 +29,7 @@ const Home = () => {
 
                     <Carousel.Caption className="img-caption">
                          <h1 className="caption-heading">New Lifestyle</h1>
-                         <Button variant="contained" color="primary">More About Us</Button>
+                         <Button style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">More About Us</Button>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item >
@@ -41,7 +41,7 @@ const Home = () => {
 
                     <Carousel.Caption className="img-caption">
                          <h1 className="caption-heading">Your Health Benefits</h1>
-                         <Button variant="contained" color="primary">Read Stories</Button>
+                         <Button style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">Read Stories</Button>
                     </Carousel.Caption>
                     </Carousel.Item>
                </Carousel>

@@ -2,9 +2,9 @@ import React from 'react';
 import {Container,Row,Col,Form} from 'react-bootstrap';
 import Button from "@material-ui/core/Button";
 import {Animated} from 'react-animated-css';
-import appointment from '../images/appointment-image.jpg';
+import Doctor from '../images/Doctor3.png';
 
-const Appointment = () =>{
+const Register = () =>{
     const labelStyle = {
         color:'#393939',
         fontWeight:'500',
@@ -25,22 +25,21 @@ const Appointment = () =>{
         color:'#555',
         height:'45px'
     }
-
     return(
-        <div style={{backgroundColor:'#fff'}}>
+        <div>
             <Container>
                 <Row>
                     <Col md={6} sm={6}>
-                        <img className="img-responsive" src={appointment}></img>
+                        <img style={{height:"100%",marginTop:"5vh"}} className="img-responsive" src={Doctor}></img>
                     </Col>
                     <Col md={6} sm={6}>
                         <Form className="appointment-form" role="form" method="post" action="#">
-                            <Animated>
+                            <Animated animationIn="flipInX">
                                 <div className="section-title" style={{paddingBottom:'20px'}}>
-                                    <h2 style={{marginTop:'5vh'}}>Make an Appointment</h2>
+                                    <h2 style={{marginTop:'5vh'}}>Registration</h2>
                                 </div>
                             </Animated>
-                            <Animated>
+                            <Animated animationIn="flipInX">
                                 <div>
                                     <Row>
                                         <Col md={6} sm={6}>
@@ -54,28 +53,32 @@ const Appointment = () =>{
                                     </Row>
                                     <Row>
                                         <Col md={6} sm={6}>
-                                            <Form.Label style={labelStyle}>Date</Form.Label>
-                                            <Form.Control style={formControl} type="date" placeholder="Your Email"/>
+                                            <Form.Label style={labelStyle}>Phone Number</Form.Label>
+                                            <Form.Control style={formControl} type="tel" placeholder="Phone"/>
                                         </Col>
                                         <Col md={6} sm={6}>
-                                            <Form.Label style={labelStyle} htmlFor="selectdep">Select Department</Form.Label>
-                                            <Form.Control style={formControl} as="select" id="selectdep">
-                                                <option value="0">General Health</option>
-                                                <option value="1">Cardiology</option>
-                                                <option value="2">Dental</option>
-                                                <option value="3">Medical Research</option>
-                                            </Form.Control>
+                                            <Form.Label style={labelStyle} htmlFor="selectdep">Adhar Number</Form.Label>
+                                            <Form.Control style={formControl} type="text" placeholder="Adhar Number"/>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col md={6} sm={6}>
+                                            <Form.Label style={labelStyle}>Password</Form.Label>
+                                            <Form.Control style={formControl} type="password" placeholder="Enter Password"/>
+                                        </Col>
+                                        <Col md={6} sm={6}>
+                                            <Form.Label style={labelStyle} htmlFor="selectdep">Confirm Password</Form.Label>
+                                            <Form.Control style={formControl} type="password" placeholder="Re-enter password"/>
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col md={12} sm={12}>
-                                            <Form.Label style={labelStyle}>Phone Number</Form.Label>
-                                            <Form.Control style={formControl} type="tel" placeholder="Phone"/>
-                                            <Form.Label style={labelStyle}>Additional Message</Form.Label>
+                                            <Form.Label style={labelStyle}>Address</Form.Label>
                                             <Form.Control style={formControl} as="textarea" rows={3} />
                                             <Form.Group>
-                                                <Button style={{width:"100%",marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422"}} variant="contained">Submit Button</Button>
+                                                <Button style={{width:"100%",marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white"}} variant="contained">Register</Button>
                                             </Form.Group>
+                                            <a href="/login">Already have an account</a>
                                         </Col>
                                     </Row>
                                 </div>
@@ -88,4 +91,4 @@ const Appointment = () =>{
     );
 }
 
-export default Appointment;
+export default Register;
