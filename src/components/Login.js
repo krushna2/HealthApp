@@ -46,7 +46,7 @@ const Login = () =>{
                                     <Row>
                                         <Col md={12} sm={12}>
                                             <Form.Label style={labelStyle}>Name</Form.Label>
-                                            <Form.Control style={formControl} type="text" placeholder="Full Name"/>
+                                            <Form.Control style={formControl} type="text" placeholder="User Name"/>
                                         </Col>
                                     </Row>
                                     <Row>
@@ -55,12 +55,7 @@ const Login = () =>{
                                             <Form.Control style={formControl} type="password" placeholder="Enter Password"/>
                                         </Col>
                                     </Row>
-                                    <Row>
-                                        <Col md={12} sm={12}>
-                                            <Form.Label style={labelStyle} htmlFor="selectdep">Confirm Password</Form.Label>
-                                            <Form.Control style={formControl} type="password" placeholder="Re-enter password"/>
-                                        </Col>
-                                    </Row>
+                                    
                                     <Row>
                                         <Col md={12} sm={12}>
                                             <Form.Group>
