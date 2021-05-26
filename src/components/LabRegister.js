@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import {Animated} from 'react-animated-css';
 import Doctor from '../images/Doctor3.png';
 
-const Register = () =>{
+const LabRegister = () =>{
     const labelStyle = {
         color:'#393939',
         fontWeight:'500',
@@ -43,8 +43,8 @@ const Register = () =>{
                                 <div>
                                     <Row>
                                         <Col md={6} sm={6}>
-                                            <Form.Label style={labelStyle}>Name</Form.Label>
-                                            <Form.Control style={formControl} type="text" placeholder="Full Name"/>
+                                            <Form.Label style={labelStyle}>Lab Name</Form.Label>
+                                            <Form.Control style={formControl} type="text" placeholder="Lab Name"/>
                                         </Col>
                                         <Col md={6} sm={6}>
                                             <Form.Label style={labelStyle}>Email</Form.Label>
@@ -53,12 +53,8 @@ const Register = () =>{
                                     </Row>
                                     <Row>
                                         <Col md={6} sm={6}>
-                                            <Form.Label style={labelStyle}>Phone Number</Form.Label>
-                                            <Form.Control style={formControl} type="tel" placeholder="Phone"/>
-                                        </Col>
-                                        <Col md={6} sm={6}>
-                                            <Form.Label style={labelStyle} htmlFor="selectdep">Adhar Number</Form.Label>
-                                            <Form.Control style={formControl} type="text" placeholder="Adhar Number"/>
+                                            <Form.Label style={labelStyle}>Contact Number</Form.Label>
+                                            <Form.Control style={formControl} type="tel" placeholder="Contact"/>
                                         </Col>
                                     </Row>
                                     <Row>
@@ -78,8 +74,7 @@ const Register = () =>{
                                             <Form.Group>
                                                 <Button style={{width:"100%",marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white"}} variant="contained">Register</Button>
                                             </Form.Group>
-                                            <div><a href="/login">Already have an account</a></div>
-                                            <div><a href="/labregister">For Lab Registration</a></div>
+                                            <a href="/login">Already have an account</a>
                                         </Col>
                                     </Row>
                                 </div>
@@ -92,4 +87,4 @@ const Register = () =>{
     );
 }
 
-export default Register;
+export default LabRegister;

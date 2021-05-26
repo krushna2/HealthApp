@@ -9,7 +9,8 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
  import Doctors from './components/Doctors';
  import Appointment from './components/Appointment';
  import Register from './components/Register';
- import Login from './components/Login'
+ import Login from './components/Login';
+ import LabRegister from "./components/LabRegister";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/appointment" component={Appointment}/>
           <Route exact path="/register" component={Register}/>
           <Route exact path="/login" component={Login}/>
+          <Route exact path="/labregister" component={LabRegister}/>
         </Switch>
       </div>
     </Router>
