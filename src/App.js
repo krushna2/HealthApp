@@ -11,23 +11,28 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
  import Register from './components/Register';
  import Login from './components/Login';
  import LabRegister from "./components/LabRegister";
+ import { Provider } from "react-redux";
+ import store from "./store";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header/>
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/about" component={About}/>
-          <Route exact path="/doctors" component={Doctors}/>
-          <Route exact path="/appointment" component={Appointment}/>
-          <Route exact path="/register" component={Register}/>
-          <Route exact path="/login" component={Login}/>
-          <Route exact path="/labregister" component={LabRegister}/>
-        </Switch>
-      </div>
-    </Router>
+    <Provider store={store} >
+      <Router>
+        <div className="App">
+          <Header/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/about" component={About}/>
+            <Route exact path="/doctors" component={Doctors}/>
+            <Route exact path="/appointment" component={Appointment}/>
+            <Route exact path="/register" component={Register}/>
+            <Route exact path="/login" component={Login}/>
+            <Route exact path="/labregister" component={LabRegister}/>
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
+    
   );
 }
 
