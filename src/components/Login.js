@@ -73,7 +73,7 @@ const Login = (props) =>{
                                 <div>
                                     <Row>
                                         <Col md={12} sm={12}>
-                                            <Form.Label style={labelStyle}>Name</Form.Label>
+                                            <Form.Label style={labelStyle}>E-mail</Form.Label>
                                             <Form.Control style={formControl} type="email" 
                                             onChange={ e => setEmail(e.target.value)}  placeholder="User E-mail"/>
                                         </Col>
