@@ -1,9 +1,18 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore,combineReducers ,applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-const initialState = {};
+import { loginUserReducer, registerUserReduce } from "./reducers/userReducer";
+
+const userInfo=null;
+
+const initialState = {userLogin:{userInfo}};
 const middleware = [thunk];
+
+const reducer = combineReducers({
+  userRegister:registerUserReduce,
+  userLogin:loginUserReducer
+})
 const store = createStore(
-  () => [],
+  reducer,
   initialState,
   compose(
     applyMiddleware(...middleware),

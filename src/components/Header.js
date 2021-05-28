@@ -1,4 +1,6 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import {useDispatch,useSelector} from 'react-redux';
+
 import Button from "@material-ui/core/Button";
 import PhoneEnabledOutlinedIcon from '@material-ui/icons/PhoneEnabledOutlined';
 import {Container,Navbar,Nav,Dropdown} from "react-bootstrap";
@@ -7,7 +9,15 @@ import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 
+import { logoutUser, setCurrentUser } from '../actions/userActions';
+
 const Header = () => {
+
+    const dispatch = useDispatch();
+   
+    const userLogin = useSelector(state => state.userLogin)
+    const {userInfo}=userLogin
+    
     return(
         <>
             <div className="header1_outline">
@@ -31,23 +41,32 @@ const Header = () => {
                         <Nav.Link className="nav-link" href="/">Home</Nav.Link>
                         <Nav.Link className="nav-link" href="/about">About Us</Nav.Link>
                         <Nav.Link className="nav-link" href="/doctors">Doctors</Nav.Link>
-                        <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
-                        <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
+                        
+                        {
+                             userInfo?(
+                                <Dropdown >
+                                    <Dropdown.Toggle variant="success" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
+                                        <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+                                        <Dropdown.Item href="/appointment">Appointment</Dropdown.Item>
+                                        <Dropdown.Item type="button" onClick={dispatch(logoutUser())} >Logout</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            ):(
+                                <div>
+                                    <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
+                                    <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
+                                </div>
+                            )
+                        }
+                      
                     </Nav>
                     {/* <Link style={{textDecoration:"none"}} to="/appointment">
                         <Button style={{backgroundColor:"#a5c422",color:"white"}} className="appointment ml-auto" variant="contained">Make an appointment</Button>
                         </Link> */}
-                    <Dropdown >
-                        <Dropdown.Toggle variant="success" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
-                            <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-                            <Dropdown.Item href="/appointment">Appointment</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
                 </Navbar.Collapse>
                 </Navbar>
             </Container>

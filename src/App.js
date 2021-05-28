@@ -15,6 +15,7 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
  import store from "./store";
 
 function App() {
+  
   return (
     <Provider store={store} >
       <Router>
