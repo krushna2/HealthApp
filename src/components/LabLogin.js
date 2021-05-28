@@ -1,12 +1,10 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import {Container,Row,Col,Form} from 'react-bootstrap';
-import {useDispatch,useSelector} from 'react-redux';
 import Button from "@material-ui/core/Button";
 import {Animated} from 'react-animated-css';
 import Doctor from '../images/Doctor3.png';
-import { loginUser } from '../actions/userActions';
 
-const Login = (props) =>{
+const LabLogin = () =>{
     const labelStyle = {
         color:'#393939',
         fontWeight:'500',
@@ -25,30 +23,8 @@ const Login = (props) =>{
         display:'block',
         width:'100%',
         color:'#555',
-        height:'45px'   
+        height:'45px'
     }
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const userLogin = useSelector(state => state.userLogin)
-    const {userInfo,isAuthenticated,loading,error}=userLogin
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        if(userInfo){
-            props.history.push("/");
-        }
-        return () => {
-            //cleanup
-        }
-    }, [userInfo,dispatch])
-
-    const submitHandler=(e)=>{
-        e.preventDefault();
-        dispatch(loginUser({email,password}))
-    }
-
     return(
         <div>
             <Container>
@@ -59,42 +35,33 @@ const Login = (props) =>{
                         </Animated>
                     </Col>
                     <Col md={6} sm={6}>
-                        <Form className="appointment-form" role="form" onSubmit={submitHandler} >
+                        <Form className="appointment-form" role="form" method="post" action="#">
                             <Animated animationIn="flipInX">
                                 <div className="section-title" style={{paddingBottom:'20px'}}>
-                                    <h2 style={{marginTop:'5vh'}}>Login</h2>
-                                </div>
-                                <div>
-                                    {loading && <div style={{font:"bold",color:"green"}} >Loading....</div> }
-                                    {error && <div style={{color:"red"}} >{error}</div>}
+                                    <h2 style={{marginTop:'5vh'}}>Lab Login</h2>
                                 </div>
                             </Animated>
                             <Animated animationIn="flipInX">
                                 <div>
                                     <Row>
                                         <Col md={12} sm={12}>
-                                            <Form.Label style={labelStyle}>Name</Form.Label>
-                                            <Form.Control style={formControl} type="email" 
-                                            onChange={ e => setEmail(e.target.value)}  placeholder="User E-mail"/>
+                                            <Form.Label style={labelStyle}>Lab Name</Form.Label>
+                                            <Form.Control style={formControl} type="text" placeholder="User Name"/>
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col md={12} sm={12}>
                                             <Form.Label style={labelStyle}>Password</Form.Label>
-                                            <Form.Control style={formControl} type="password" 
-                                            onChange={ e => setPassword(e.target.value)} placeholder="Enter Password"/>
+                                            <Form.Control style={formControl} type="password" placeholder="Enter Password"/>
                                         </Col>
                                     </Row>
                                     
                                     <Row>
                                         <Col md={12} sm={12}>
                                             <Form.Group>
-                                                <Button type="submit" style={{width:"100%",marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white"}} variant="contained">Login</Button>
+                                                <Button style={{width:"100%",marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white"}} variant="contained">Login</Button>
                                             </Form.Group>
                                             <a href="/register">New User?</a>
-                                            <div>
-                                                <a href="/lablogin">For Lab Login</a>
-                                            </div>
                                         </Col>
                                     </Row>
                                 </div>
@@ -107,4 +74,4 @@ const Login = (props) =>{
     );
 }
 
-export default Login;
+export default LabLogin;

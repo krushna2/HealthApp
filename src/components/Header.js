@@ -9,7 +9,7 @@ import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 
-import { logoutUser, setCurrentUser } from '../actions/userActions';
+import { logoutUser} from '../actions/userActions';
 
 const Header = () => {
 
@@ -17,6 +17,13 @@ const Header = () => {
    
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo}=userLogin
+
+    useEffect(() => {
+       
+        return () => {
+            // cleanup
+        }
+    }, [dispatch,userInfo])
     
     return(
         <>
@@ -43,7 +50,7 @@ const Header = () => {
                         <Nav.Link className="nav-link" href="/doctors">Doctors</Nav.Link>
                         
                         {
-                             userInfo?(
+                             userInfo ?(
                                 <Dropdown >
                                     <Dropdown.Toggle variant="success" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
                                         <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
@@ -52,7 +59,7 @@ const Header = () => {
                                     <Dropdown.Menu>
                                         <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
                                         <Dropdown.Item href="/appointment">Appointment</Dropdown.Item>
-                                        <Dropdown.Item type="button" onClick={dispatch(logoutUser())} >Logout</Dropdown.Item>
+                                        <Dropdown.Item type="button" onClick={() => dispatch(logoutUser())} >Logout</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             ):(
