@@ -13,6 +13,7 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
  import LabRegister from "./components/LabRegister";
  import { Provider } from "react-redux";
  import store from "./store";
+import LabLogin from './components/LabLogin';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/register" component={Register}/>
             <Route exact path="/login" component={Login}/>
             <Route exact path="/labregister" component={LabRegister}/>
+            <Route exact path="/lablogin" component={LabLogin}/>
           </Switch>
         </div>
       </Router>

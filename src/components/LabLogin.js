@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import {Animated} from 'react-animated-css';
 import Doctor from '../images/Doctor3.png';
 
-const Login = () =>{
+const LabLogin = () =>{
     const labelStyle = {
         color:'#393939',
         fontWeight:'500',
@@ -38,14 +38,14 @@ const Login = () =>{
                         <Form className="appointment-form" role="form" method="post" action="#">
                             <Animated animationIn="flipInX">
                                 <div className="section-title" style={{paddingBottom:'20px'}}>
-                                    <h2 style={{marginTop:'5vh'}}>Login</h2>
+                                    <h2 style={{marginTop:'5vh'}}>Lab Login</h2>
                                 </div>
                             </Animated>
                             <Animated animationIn="flipInX">
                                 <div>
                                     <Row>
                                         <Col md={12} sm={12}>
-                                            <Form.Label style={labelStyle}>Name</Form.Label>
+                                            <Form.Label style={labelStyle}>Lab Name</Form.Label>
                                             <Form.Control style={formControl} type="text" placeholder="User Name"/>
                                         </Col>
                                     </Row>
@@ -62,9 +62,6 @@ const Login = () =>{
                                                 <Button style={{width:"100%",marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white"}} variant="contained">Login</Button>
                                             </Form.Group>
                                             <a href="/register">New User?</a>
-                                            <div>
-                                                <a href="/lablogin">For Lab Login</a>
-                                            </div>
                                         </Col>
                                     </Row>
                                 </div>
@@ -77,4 +74,4 @@ const Login = () =>{
     );
 }
 
-export default Login;
+export default LabLogin;
