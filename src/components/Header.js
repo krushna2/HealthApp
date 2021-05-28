@@ -57,8 +57,10 @@ const Header = () => {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+                                        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                                        <Dropdown.Item href="/lab">Labs</Dropdown.Item>
                                         <Dropdown.Item href="/appointment">Appointment</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1">Reports</Dropdown.Item>
                                         <Dropdown.Item type="button" onClick={() => dispatch(logoutUser())} >Logout</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
