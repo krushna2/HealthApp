@@ -1,8 +1,9 @@
 import React from 'react';
 import {Container,Row,Col} from 'react-bootstrap';
 import {Animated} from 'react-animated-css';
+import Button from "@material-ui/core/Button";
 
-const Appointment = () => {
+const Lab = () => {
     return(
         <div >
             <Animated>
@@ -20,11 +21,6 @@ const Appointment = () => {
                         </Col>
                         <Col md={6} sm={6}>
                             <div>
-                                <h5>Lab Email:</h5>
-                            </div>
-                        </Col>
-                        <Col md={6} sm={6}>
-                            <div>
                                 <h5>Lab Contact:</h5>
                             </div>
                         </Col>
@@ -33,9 +29,9 @@ const Appointment = () => {
                                 <h5>Lab Address:</h5>
                             </div>
                         </Col>
-                        <Col md={6} sm={6}>
+                        <Col md={12} sm={12}>
                             <div>
-                                <h5>Appointment:</h5>
+                                <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Make Request</Button>
                             </div>
                         </Col>
 
@@ -45,4 +41,4 @@ const Appointment = () => {
         </div>
     );
 }
-export default Appointment;
+export default Lab;

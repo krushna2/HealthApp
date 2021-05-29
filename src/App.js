@@ -12,6 +12,8 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
  import Login from './components/Login';
  import LabRegister from "./components/LabRegister";
 import LabLogin from './components/LabLogin';
+import Profile from './components/Profile';
+import Lab from "./components/Lab";
 
 function App() {
   
@@ -29,6 +31,8 @@ function App() {
             <Route exact path="/login" component={Login}/>
             <Route exact path="/labregister" component={LabRegister}/>
             <Route exact path="/lablogin" component={LabLogin}/>
+            <Route exact path="/profile" component={Profile}/>
+            <Route exact path="/lab" component={Lab} />
           </Switch>
         </div>
       </Router>

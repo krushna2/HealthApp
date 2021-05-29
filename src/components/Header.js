@@ -63,9 +63,15 @@ const Header = (props) => {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+                                        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                                        <Dropdown.Item href="/lab">Labs</Dropdown.Item>
                                         <Dropdown.Item href="/appointment">Appointment</Dropdown.Item>
+<<<<<<< HEAD
                                         <Dropdown.Item type="button" onClick={() => dispatch(logoutUser(props.history))} >Logout</Dropdown.Item>
+=======
+                                        <Dropdown.Item href="#/action-1">Reports</Dropdown.Item>
+                                        <Dropdown.Item type="button" onClick={() => dispatch(logoutUser())} >Logout</Dropdown.Item>
+>>>>>>> 2702fd665bad0976ff4ad492bc2f77c7eb4a5486
                                     </Dropdown.Menu>
                                 </Dropdown>
                             ):(
