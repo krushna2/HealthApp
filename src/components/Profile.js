@@ -1,8 +1,11 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {Container,Row,Col} from 'react-bootstrap';
 import {Animated} from 'react-animated-css';
 
 const Profile = () => {
+    const userLogin = useSelector(state => state.userLogin)
+    const {userInfo}=userLogin
     return(
         <div >
             <Animated>
@@ -10,22 +13,22 @@ const Profile = () => {
                     <Row>
                         <Col md={12} sm={12}>
                             <div>
-                                <h5>Name:</h5> 
+                                <h5>Name : </h5>{userInfo.name}
                             </div>
                         </Col>
                         <Col md={12} sm={12}>
                             <div>
-                                <h5>Email:</h5>
+                                <h5>Email : </h5>{userInfo.email}
                             </div>
                         </Col>
                         <Col md={12} sm={12}>
                             <div>
-                                <h5>Mobile No:</h5>
+                                <h5>Mobile No: </h5>{userInfo.mobileNum}
                             </div>
                         </Col>
                         <Col md={12} sm={12}>
                             <div>
-                                <h5>Aadhar No:</h5>
+                                <h5>Aadhar No : </h5>{userInfo.adharNum}
                             </div>
                         </Col>
 

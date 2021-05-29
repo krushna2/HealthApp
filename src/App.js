@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
-
+import {BrowserRouter,Route,Link} from 'react-router-dom';
 
  import Header from './components/Header';
  import Home from './components/Home';
@@ -16,13 +15,14 @@ import Profile from './components/Profile';
 import Lab from "./components/Lab";
 
 function App() {
-  
+
   return (
     
-      <Router>
+      <BrowserRouter>
         <div className="App">
-          <Header/>
-          <Switch>
+            <Header/>
+          <div>
+            <Route exact path="/header" component={Header}/>
             <Route exact path="/" component={Home}/>
             <Route exact path="/about" component={About}/>
             <Route exact path="/doctors" component={Doctors}/>
@@ -33,9 +33,9 @@ function App() {
             <Route exact path="/lablogin" component={LabLogin}/>
             <Route exact path="/profile" component={Profile}/>
             <Route exact path="/lab" component={Lab} />
-          </Switch>
+          </div>
         </div>
-      </Router>
+      </BrowserRouter>
     
     
   );

@@ -1,10 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
-
-import Button from "@material-ui/core/Button";
 import PhoneEnabledOutlinedIcon from '@material-ui/icons/PhoneEnabledOutlined';
 import {Container,Navbar,Nav,Dropdown} from "react-bootstrap";
-import {Link} from 'react-router-dom';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
@@ -13,24 +10,21 @@ import { logoutUser} from '../actions/userActions';
 
 const Header = (props) => {
     // const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false)
+
     const dispatch = useDispatch();
    
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo}=userLogin
 
     console.log("logged In user ",userInfo)
+
+    const logoutHandler=()=>{
+        dispatch(logoutUser(props.history));
+    }
     // console.log("isAuth ",isAuthenticatedUser)
 
-    // useEffect(() => {
-    //     if(userInfo)
-    //         setIsAuthenticatedUser(true)
-    //     else
-    //         setIsAuthenticatedUser(false)
-    //     return () => {
-    //         // cleanup
-    //     }
-    // }, [isAuthenticatedUser,userInfo,dispatch])
-    
+    // userInfo ? setIsAuthenticatedUser(true) : setIsAuthenticatedUser(false);
+
     return(
         <>
             <div className="header1_outline">
@@ -56,7 +50,7 @@ const Header = (props) => {
                         <Nav.Link className="nav-link" href="/doctors">Doctors</Nav.Link>
                         
                         {
-                             userInfo  ?(
+                             userInfo ?(
                                 <Dropdown >
                                     <Dropdown.Toggle variant="success" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
                                         <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
@@ -66,12 +60,9 @@ const Header = (props) => {
                                         <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                                         <Dropdown.Item href="/lab">Labs</Dropdown.Item>
                                         <Dropdown.Item href="/appointment">Appointment</Dropdown.Item>
-<<<<<<< HEAD
-                                        <Dropdown.Item type="button" onClick={() => dispatch(logoutUser(props.history))} >Logout</Dropdown.Item>
-=======
                                         <Dropdown.Item href="#/action-1">Reports</Dropdown.Item>
-                                        <Dropdown.Item type="button" onClick={() => dispatch(logoutUser())} >Logout</Dropdown.Item>
->>>>>>> 2702fd665bad0976ff4ad492bc2f77c7eb4a5486
+                                        <Dropdown.Item type="button" onClick={logoutHandler} >Logout</Dropdown.Item>
+
                                     </Dropdown.Menu>
                                 </Dropdown>
                             ):(
