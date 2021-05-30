@@ -13,6 +13,7 @@ import {BrowserRouter,Route,Link} from 'react-router-dom';
 import LabLogin from './components/LabLogin';
 import Profile from './components/Profile';
 import Lab from "./components/Lab";
+import Dashboard from './components/Dashboard';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/lablogin" component={LabLogin}/>
             <Route exact path="/profile" component={Profile}/>
             <Route exact path="/lab" component={Lab} />
+            <Route exact path="/dashboard" component={Dashboard}/>
           </div>
         </div>
       </BrowserRouter>
