@@ -5,8 +5,10 @@ import {Container,Navbar,Nav,Dropdown} from "react-bootstrap";
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import Button from "@material-ui/core/Button";
 
 import { logoutUser} from '../actions/userActions';
+// import { Button } from 'bootstrap';
 
 const Header = (props) => {
     // const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false)
@@ -51,20 +53,10 @@ const Header = (props) => {
                         
                         {
                              userInfo ?(
-                                <Dropdown >
-                                    <Dropdown.Toggle variant="success" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
-                                        <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                                        <Dropdown.Item href="/lab">Labs</Dropdown.Item>
-                                        <Dropdown.Item href="/appointment">Appointment</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-1">Reports</Dropdown.Item>
-                                        <Dropdown.Item type="button" onClick={logoutHandler} >Logout</Dropdown.Item>
-
-                                    </Dropdown.Menu>
-                                </Dropdown>
+                                
+                                <Button href="/dashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
+                                    <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
+                                </Button>
                             ):(
                                 <div>
                                     <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
