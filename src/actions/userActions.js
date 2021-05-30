@@ -6,7 +6,10 @@ import {
   USER_REGISTER_FAILED,USER_REGISTER_REQUEST,
   SET_CURRENT_USER,
   USER_LOADING,
-  USER_LOGIN_FAILED
+  USER_LOGIN_FAILED,
+  USER_APP_LIST_FAILED,
+  USER_APP_LIST_SUCCESS,
+  USER_APP_LIST_REQUEST
 } from "./userActionTypes";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -73,3 +76,18 @@ export const logoutUser = (history) => dispatch => {
   dispatch(setCurrentUser({}))
  
 };
+
+export const listUserAppointment=(userID)=>async(dispatch)=>{
+    try{  
+          dispatch({type:USER_APP_LIST_REQUEST})
+          const {appointments} = await axios.get("/api/users/appointments/"+userID);
+          if(appointments){
+            localStorage.setItem("userAppointmentList",JSON.stringify(appointments))
+            dispatch({type:USER_APP_LIST_SUCCESS,payload:appointments})
+          }else{
+            dispatch({type:USER_APP_LIST_SUCCESS,payload:[]})
+          }      
+    }catch(err){
+      dispatch({type:USER_APP_LIST_FAILED,payload:err.message})
+    }
+}
