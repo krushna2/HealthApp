@@ -70,20 +70,24 @@ export const logoutUser = (history) => dispatch => {
   // Remove token from local storage
   localStorage.removeItem("jwtToken");
   localStorage.removeItem("userInfo");
+  localStorage.removeItem("userAppointmentList");
   // Remove auth header for future requests
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}))
- 
+
+  history.push("/login")
 };
 
 export const listUserAppointment=(userID)=>async(dispatch)=>{
     try{  
           dispatch({type:USER_APP_LIST_REQUEST})
-          const {appointments} = await axios.get("/api/users/appointments/"+userID);
+          // console.log("user Id ",userID)
+          const appointments = await axios.get("/api/users/appointments/"+userID);
+          // console.log("appointment list for user from server ",appointments.data)
           if(appointments){
-            localStorage.setItem("userAppointmentList",JSON.stringify(appointments))
-            dispatch({type:USER_APP_LIST_SUCCESS,payload:appointments})
+            localStorage.setItem("userAppointmentList",appointments.data)
+            dispatch({type:USER_APP_LIST_SUCCESS,payload:appointments.data})
           }else{
             dispatch({type:USER_APP_LIST_SUCCESS,payload:[]})
           }      

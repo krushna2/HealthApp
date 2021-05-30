@@ -1,9 +1,21 @@
 import React from 'react';
 import {Container,Row,Col,Nav} from 'react-bootstrap';
+import {useSelector,useDispatch} from 'react-redux';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import Button from "@material-ui/core/Button";
+import {logoutUser} from '../actions/userActions';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+    
+    const dispatch = useDispatch();
+
+    const userLogin = useSelector(state => state.userLogin)
+    const {userInfo}=userLogin
+
+    const logoutHandler=()=>{
+        dispatch(logoutUser(props.history));
+    }
+
     return(
         <div>
             <Container style={{marginTop:"5vh"}}>
@@ -13,7 +25,7 @@ const Dashboard = () => {
                             <Button href="/lab" style={{backgroundColor:"#a5c422",color:"white",border:"none",marginTop:"4vh",marginRight:"2vw",marginLeft:"2vw",height:"6vh"}}>Labs</Button>
                             <Button href="/appointment" style={{backgroundColor:"#a5c422",color:"white",border:"none",marginTop:"4vh",marginRight:"2vw",marginLeft:"2vw",height:"6vh"}}>Appointment</Button>
                             <Button href="/report" style={{backgroundColor:"#a5c422",color:"white",border:"none",marginTop:"4vh",marginRight:"2vw",marginLeft:"2vw",height:"6vh"}}>Reports</Button>
-                            <Button href="/home" style={{backgroundColor:"#a5c422",color:"white",border:"none",marginTop:"4vh",marginRight:"2vw",marginLeft:"2vw",height:"6vh"}}>Logout</Button>
+                            <Button href="/home" style={{backgroundColor:"#a5c422",color:"white",border:"none",marginTop:"4vh",marginRight:"2vw",marginLeft:"2vw",height:"6vh"}} onClick={logoutHandler} >Logout</Button>
                         </Nav>
                     </Col>
                     <Col md={6} sm={6}>
@@ -24,16 +36,16 @@ const Dashboard = () => {
                         
                         <div className="user-info" style={{marginTop:"5vh"}}>
                             <div className="user-field">
-                                <h6>Name:</h6>
+                                <h4>Name : <span>{userInfo.name}</span></h4>
                             </div>
                             <div className="user-field">
-                                <h6>Email:</h6>                                
+                                <h4>Email : <span> {userInfo.email} </span></h4>                                
                             </div>
                             <div className="user-field">
-                                <h6>Mobile No:</h6>                                
+                                <h4>Mobile No : <span> {userInfo.mobileNum} </span></h4>                                
                             </div>
                             <div className="user-field">
-                                <h6>Address:</h6>                                
+                                <h4>Adhar Number : <span> {userInfo.adharNum} </span></h4>                                
                             </div>
                         </div>
                     </Col>

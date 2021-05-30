@@ -1,5 +1,5 @@
-import React,{useEffect,useState} from 'react';
-import {useDispatch,useSelector} from 'react-redux';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import PhoneEnabledOutlinedIcon from '@material-ui/icons/PhoneEnabledOutlined';
 import {Container,Navbar,Nav,Dropdown} from "react-bootstrap";
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
@@ -11,21 +11,9 @@ import { logoutUser} from '../actions/userActions';
 // import { Button } from 'bootstrap';
 
 const Header = (props) => {
-    // const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false)
 
-    const dispatch = useDispatch();
-   
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo}=userLogin
-
-    console.log("logged In user ",userInfo)
-
-    const logoutHandler=()=>{
-        dispatch(logoutUser(props.history));
-    }
-    // console.log("isAuth ",isAuthenticatedUser)
-
-    // userInfo ? setIsAuthenticatedUser(true) : setIsAuthenticatedUser(false);
 
     return(
         <>
