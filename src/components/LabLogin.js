@@ -31,7 +31,7 @@ const LabLogin = () =>{
                 <Row>
                     <Col md={6} sm={6}>
                         <Animated>
-                            <img style={{height:"100%",marginTop:'5vh'}} className="img-responsive" src={Doctor}></img>
+                            <img alt="login" style={{height:"100%",marginTop:'5vh'}} className="img-responsive" src={Doctor}></img>
                         </Animated>
                     </Col>
                     <Col md={6} sm={6}>

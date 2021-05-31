@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter,Route,Link} from 'react-router-dom';
+import {BrowserRouter,Route} from 'react-router-dom';
 
  import Header from './components/Header';
  import Home from './components/Home';
@@ -11,7 +11,6 @@ import {BrowserRouter,Route,Link} from 'react-router-dom';
  import Login from './components/Login';
  import LabRegister from "./components/LabRegister";
 import LabLogin from './components/LabLogin';
-import Profile from './components/Profile';
 import Lab from "./components/Lab";
 import Dashboard from './components/Dashboard';
 

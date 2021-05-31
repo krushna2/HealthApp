@@ -50,14 +50,14 @@ import { USER_REGISTER_REQUEST, USER_REGISTER_FAILED } from "../actions/userActi
       }
   }
 
-  export const listUserAppointmentReducer=(state={apointmentList:[]},action)=>{
+  export const listUserAppointmentReducer=(state={appointmentList:[],loading:true},action)=>{
       switch(action.type){
-        case USER_APP_LIST_REQUEST:
-          return {loading:true,appointmentList:[]}
+        // case USER_APP_LIST_REQUEST:
+        //   return {...state,loading:true,appointmentList:[]}
         case USER_APP_LIST_SUCCESS:
-          return {loading:false,appointmentList:action.payload}
+          return {...state,loading:false,appointmentList:action.payload}
         case USER_APP_LIST_FAILED:
-          return {loading:false,error:action.payload}
+          return {...state,loading:false,error:action.payload}
         default:
           return state;
       }

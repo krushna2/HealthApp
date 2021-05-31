@@ -30,7 +30,7 @@ const LabRegister = () =>{
             <Container>
                 <Row>
                     <Col md={6} sm={6}>
-                        <img style={{height:"100%",marginTop:"5vh"}} className="img-responsive" src={Doctor}></img>
+                        <img alt="register" style={{height:"100%",marginTop:"5vh"}} className="img-responsive" src={Doctor}></img>
                     </Col>
                     <Col md={6} sm={6}>
                         <Form className="appointment-form" role="form" method="post" action="#">

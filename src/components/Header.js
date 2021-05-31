@@ -1,13 +1,12 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import PhoneEnabledOutlinedIcon from '@material-ui/icons/PhoneEnabledOutlined';
-import {Container,Navbar,Nav,Dropdown} from "react-bootstrap";
+import {Container,Navbar,Nav} from "react-bootstrap";
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import Button from "@material-ui/core/Button";
 
-import { logoutUser} from '../actions/userActions';
 // import { Button } from 'bootstrap';
 
 const Header = (props) => {
