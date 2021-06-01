@@ -1,6 +1,7 @@
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
+import Cookie from 'js-cookie';
 
 import {
   USER_REGISTER_FAILED,USER_REGISTER_REQUEST,
@@ -9,7 +10,9 @@ import {
   USER_LOGIN_FAILED,
   USER_APP_LIST_FAILED,
   USER_APP_LIST_SUCCESS,
-  USER_APP_LIST_REQUEST
+  USER_APP_LIST_REQUEST,
+  LAB_LIST_FAILED,
+  LAB_LIST_SUCCESS
 } from "./userActionTypes";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -87,4 +90,15 @@ export const listUserAppointment=(userID)=>async(dispatch)=>{
     }catch(err){
       dispatch({type:USER_APP_LIST_FAILED,payload:err.message})
     }
+}
+
+export const listLab=()=>async (dispatch)=>{
+  try{
+      const labs =  await axios.get("/api/labs/");
+      console.log("lab list ",labs)
+      dispatch({type:LAB_LIST_SUCCESS,payload:labs.data})
+ 
+  }catch(err){
+    dispatch({type:LAB_LIST_FAILED,payload:err.message})
+  }
 }

@@ -1,4 +1,6 @@
 import {
+  LAB_LIST_FAILED,
+  LAB_LIST_SUCCESS,
     SET_CURRENT_USER,
   USER_APP_LIST_FAILED,
   USER_APP_LIST_REQUEST,
@@ -58,6 +60,17 @@ import { USER_REGISTER_REQUEST, USER_REGISTER_FAILED } from "../actions/userActi
           return {...state,loading:false,appointmentList:action.payload}
         case USER_APP_LIST_FAILED:
           return {...state,loading:false,error:action.payload}
+        default:
+          return state;
+      }
+  }
+
+  export const listLabReducer=(state={labs:[],loading:true},action)=>{
+      switch(action.type){
+        case LAB_LIST_SUCCESS:
+          return {...state,loading:false,labs:action.payload};
+        case LAB_LIST_FAILED:
+          return {...state,loading:false,error:action.payload};
         default:
           return state;
       }
