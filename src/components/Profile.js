@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import {Container,Row,Col} from 'react-bootstrap';
 import {Animated} from 'react-animated-css';
 
+
 const Profile = () => {
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo}=userLogin
