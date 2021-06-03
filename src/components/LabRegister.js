@@ -28,7 +28,11 @@ const LabRegister = () =>{
 
     const [labName, setLabName] = useState('');
     const [labEmail, setLabEmail] = useState('');
-    const [lanContact, setLanContact] = useState(0)
+    const [labContact, setLabContact] = useState(0);
+    const [labAddress, setLabAddress] = useState('');
+    const [labLocation, setLabLocation] = useState('');
+    const [labPassword, setLabPassword] = useState('');
+    const [labPassword2, setLabPassword2] = useState('');
     return(
         <div>
             <Container>
