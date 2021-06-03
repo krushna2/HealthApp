@@ -14,6 +14,9 @@ const Header = (props) => {
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo}=userLogin
 
+    const labLogin = useSelector(state => state.labLogin)
+    const {labInfo}=labLogin
+
     return(
         <>
             <div className="header1_outline">
@@ -38,13 +41,15 @@ const Header = (props) => {
                         <Nav.Link className="nav-link" href="/about">About Us</Nav.Link>
                         <Nav.Link className="nav-link" href="/doctors">Doctors</Nav.Link>
                         
-                        {
+                        {   
+                            labInfo?<div>{labInfo.labName}</div>:
                              userInfo ?(
                                 
                                 <Button href="/dashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
                                     <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
                                 </Button>
-                            ):(
+                            ):
+                            (
                                 <div>
                                     <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
                                     <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
