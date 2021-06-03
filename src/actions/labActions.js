@@ -10,7 +10,7 @@ export const registerLab = (labData, history) => dispatch => {
       type:LAB_REGISTER_REQUEST
   })
   axios
-    .post("/api/labs/register", labData)
+    .post("/api/labs/register",labData)
     .then(res => history.push("/lablogin")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
@@ -23,7 +23,7 @@ export const registerLab = (labData, history) => dispatch => {
 export const loginLab = labData => dispatch => {
   dispatch(setLabLoading)
   axios
-    .post("/api/labs/login", labData)
+    .post("/api/labs/login",labData)
     .then(res => {
       // Save to localStorage
 // Set token to localStorage
@@ -39,7 +39,7 @@ export const loginLab = labData => dispatch => {
       dispatch(setCurrentLab(decoded));
     })
     .catch(err =>
-      dispatch({
+      dispatch({  
         type: LAB_LOGIN_FAILED,
         payload: err.response
       })
@@ -75,7 +75,9 @@ export const logoutLab = (history) => dispatch => {
 export const listLabAppointment=(labID)=>async(dispatch)=>{
     try{  
         // dispatch({type:USER_APP_LIST_REQUEST})
+        console.log("labID ",labID)
         const appointments = await axios.get("/api/labs/appointments/request"+labID);
+        console.log("from server app request ",appointments)
         dispatch({type:LAB_APP_LIST_SUCCESS,payload:appointments.data})     
     }catch(err){
       dispatch({type:LAB_APP_LIST_FAILED,payload:err.message})

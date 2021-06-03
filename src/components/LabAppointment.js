@@ -3,6 +3,7 @@ import {useSelector,useDispatch} from 'react-redux';
 import {Container,Row,Col,InputGroup,Modal,FormControl} from 'react-bootstrap';
 import {Animated} from 'react-animated-css';
 import Button from "@material-ui/core/Button";
+import { listLabAppointment } from '../actions/labActions';
 // import Button from "@material-ui/core/Button";
 
     function MyVerticallyCenteredModal(props) {
@@ -37,30 +38,43 @@ import Button from "@material-ui/core/Button";
 
 const LabAppointment = () => {
 
+    const dispatch = useDispatch()
+
+    const labLogin = useSelector(state => state.labLogin)
+    const {labInfo}=labLogin
+    const labAppointmentList = useSelector(state => state.labAppointmentList)
+    const {loading,appointmentList,error}=labAppointmentList
+   
+    useEffect(() => {
+            dispatch(listLabAppointment(labInfo.labId))
+        return () => {
+            // cleanup
+        }
+    }, [appointmentList])
+
     const [modalShow, setModalShow] = React.useState(false);
     return(
         <div>
-                        <Animated >
+            {
+                error ? <div>{error}</div> :
+                loading ? <div>Loading...</div>:
+                    appointmentList.map(appointment =>
+                        <Animated key={appointment._id} >
                             <Container style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",marginTop:"2vh",paddingTop:"2vh"}}>
                                 <Row>
                                     <Col md={6} sm={6}>
                                         <div>
-                                            <h5>User Name:</h5> 
+                                            <h5>User Name: {appointment.name} </h5> 
                                         </div>
                                     </Col>
                                     <Col md={6} sm={6}>
                                         <div>
-                                            <h5> Email:</h5>
+                                            <h5> Email: {appointment.email} </h5>
                                         </div>
                                     </Col>
                                     <Col md={6} sm={6}>
                                         <div>
-                                            <h5> Contact No:</h5>
-                                        </div>
-                                    </Col>
-                                    <Col md={6} sm={6}>
-                                        <div>
-                                            <h5>Address: </h5>
+                                            <h5> Contact No: {appointment.mobileNum} </h5>
                                         </div>
                                     </Col>
                                     <Col md={12} sm={12}>
@@ -76,6 +90,9 @@ const LabAppointment = () => {
                                     </Row>
                             </Container>
                         </Animated> 
+                    )   
+            }  
+                        
         </div>
     );
 }

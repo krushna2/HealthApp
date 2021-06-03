@@ -16,7 +16,8 @@ const Header = (props) => {
 
     const labLogin = useSelector(state => state.labLogin)
     const {labInfo}=labLogin
-
+    console.log(labInfo)
+   
     return(
         <>
             <div className="header1_outline">
@@ -42,15 +43,21 @@ const Header = (props) => {
                         <Nav.Link className="nav-link" href="/doctors">Doctors</Nav.Link>
                         
                         {   
-                            labInfo?<div>{labInfo.labName}</div>:
-                             userInfo ?(
+                             userInfo || labInfo ?(
                                  <div>
-                                     <Button href="/dashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
-                                        <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
-                                    </Button>
-                                    <Button href="/labdashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
-                                        <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
-                                    </Button>
+                                     {
+                                         userInfo?(
+                                            <Button href="/dashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
+                                                <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
+                                            </Button>
+                                         ):(
+                                            <Button href="/labdashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
+                                                <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
+                                            </Button>
+                                         )
+                                     }
+                                    
+                                    
                                  </div>
                                 
                                 

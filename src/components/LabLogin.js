@@ -72,9 +72,9 @@ const LabLogin = (props) =>{
                                 <div>
                                     <Row>
                                         <Col md={12} sm={12}>
-                                            <Form.Label style={labelStyle}>Lab Name</Form.Label>
-                                            <Form.Control style={formControl} type="text" 
-                                            onChange={ e => setLabEmail(e.target.value)} placeholder="User Name"/>
+                                            <Form.Label style={labelStyle}>Lab E-mail</Form.Label>
+                                            <Form.Control style={formControl} type="email" 
+                                            onChange={ e => setLabEmail(e.target.value)} placeholder="Lab E-mail"/>
                                         </Col>
                                     </Row>
                                     <Row>

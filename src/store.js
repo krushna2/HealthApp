@@ -8,10 +8,10 @@ import { listLabReducer,
 
 const userInfo=localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : null;
 const labInfo=localStorage.getItem("labInfo") ? JSON.parse(localStorage.getItem("labInfo")) : null;  
-// const appointmentList=localStorage.getItem("userAppointmentList")?localStorage.getItem("userAppointmentList"):[];
+
 
 const initialState = {userLogin:{userInfo},
-              
+    labLogin:{labInfo}
 };
   
 const middleware = [thunk];
