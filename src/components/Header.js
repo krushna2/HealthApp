@@ -44,13 +44,20 @@ const Header = (props) => {
                         {   
                             labInfo?<div>{labInfo.labName}</div>:
                              userInfo ?(
+                                 <div>
+                                     <Button href="/dashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
+                                        <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
+                                    </Button>
+                                    <Button href="/labdashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
+                                        <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
+                                    </Button>
+                                 </div>
                                 
-                                <Button href="/dashboard" id="dropdown-basic" style={{backgroundColor:"#a5c422",color:"white",border:"none"}}>
-                                    <AccountCircleOutlinedIcon ></AccountCircleOutlinedIcon>
-                                </Button>
+                                
                             ):
                             (
                                 <div>
+                                    
                                     <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
                                     <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
                                 </div>
