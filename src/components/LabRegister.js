@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Container,Row,Col,Form} from 'react-bootstrap';
 import Button from "@material-ui/core/Button";
 import {Animated} from 'react-animated-css';
@@ -25,6 +25,10 @@ const LabRegister = () =>{
         color:'#555',
         height:'45px'
     }
+
+    const [labName, setLabName] = useState('');
+    const [labEmail, setLabEmail] = useState('');
+    const [lanContact, setLanContact] = useState(0)
     return(
         <div>
             <Container>
