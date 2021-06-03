@@ -24,6 +24,7 @@ function App() {
           <div>
             <Route exact path="/header" component={Header}/>
             <Route exact path="/" component={Home}/>
+            <Route exact path="/home" component={Home}/>
             <Route exact path="/about" component={About}/>
             <Route exact path="/doctors" component={Doctors}/>
             <Route exact path="/appointment" component={Appointment}/>
