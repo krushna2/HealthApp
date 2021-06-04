@@ -15,6 +15,9 @@ import Lab from "./components/Lab";
 import Dashboard from './components/Dashboard';
 import LabDashboard from './components/LabDashboard';
 import LabAppointment from './components/LabAppointment';
+import PathoLabs from './components/PathoLabs';
+import Hospitals from './components/Hospitals';
+import HealthInsurance from './components/HealthInsurance';
 
 function App() {
 
@@ -39,6 +42,9 @@ function App() {
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/labdashboard" component={LabDashboard}/>
             <Route exact path="/labappointent" component={LabAppointment} />
+            <Route exact path="/patholabs" component={PathoLabs}/>
+            <Route exact path="/hospitals" component={Hospitals}/>
+            <Route exact path="/healthinsurance" component={HealthInsurance}/>
           </div>
         </div>
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
-import Cookie from 'js-cookie';
+// import Cookie from 'js-cookie';
 
 import { LAB_APP_LIST_FAILED, LAB_APP_LIST_SUCCESS, LAB_LOADING, LAB_LOGIN_FAILED, LAB_REGISTER_FAILED, LAB_REGISTER_REQUEST, SET_CURRENT_LAB } from "./labActionTypes";
 // Register User

@@ -16,8 +16,8 @@ const Home = () => {
                          alt="First slide"
                     />
                     <Carousel.Caption className="img-caption">
-                         <h1 className="caption-heading">Healthy Livings</h1>
-                         <Button style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">Meet Doctors</Button>
+                         <h1 className="caption-heading">Search Nearby Lab</h1>
+                         <Button href="/patholabs" style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">Pathological Labs</Button>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item className="car-item">
@@ -28,8 +28,8 @@ const Home = () => {
                     />
 
                     <Carousel.Caption className="img-caption">
-                         <h1 className="caption-heading">New Lifestyle</h1>
-                         <Button style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">More About Us</Button>
+                         <h1 className="caption-heading">Search Nearby Hospitals</h1>
+                         <Button href="/hospitals" style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">Hospitals</Button>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item >
@@ -40,8 +40,8 @@ const Home = () => {
                     />
 
                     <Carousel.Caption className="img-caption">
-                         <h1 className="caption-heading">Your Health Benefits</h1>
-                         <Button style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">Read Stories</Button>
+                         <h1 className="caption-heading">Your Health Insurance</h1>
+                         <Button href="/healthisurance" style={{backgroundColor:"#a5c422",color:"white"}} variant="contained">Read More</Button>
                     </Carousel.Caption>
                     </Carousel.Item>
                </Carousel>

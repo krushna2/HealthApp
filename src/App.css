@@ -19,6 +19,7 @@ body {
 }
 .tabs{
     font-weight: bold;
+    
 }
 .nav-link{
     margin-right: auto;
@@ -26,11 +27,12 @@ body {
 
 .caption-heading{
     font-weight: bold;
-    font-size:5vw;
+    font-size:3vw;
+    color: black;
 }
 .car-img{
     height: 650px;
-    filter: blur(10px);
+    filter: blur(5px);
 }
 .img-caption{
     top:35vh;
@@ -96,4 +98,7 @@ body {
 }
 .user-field{
     margin-top: 3vh;
+}
+.registration{
+    display: inline;
 }

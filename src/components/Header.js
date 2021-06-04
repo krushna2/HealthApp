@@ -40,7 +40,6 @@ const Header = (props) => {
                     <Nav className="tabs ml-auto">
                         <Nav.Link className="nav-link" href="/">Home</Nav.Link>
                         <Nav.Link className="nav-link" href="/about">About Us</Nav.Link>
-                        <Nav.Link className="nav-link" href="/doctors">Doctors</Nav.Link>
                         
                         {   
                              userInfo || labInfo ?(
@@ -63,10 +62,12 @@ const Header = (props) => {
                                 
                             ):
                             (
-                                <div>
+                                <div className="registration">
                                     
                                     <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
-                                    <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
+                                    <div>
+                                        <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
+                                    </div>
                                 </div>
                             )
                         }
