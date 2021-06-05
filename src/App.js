@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/lab" component={Lab} />
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/labdashboard" component={LabDashboard}/>
-            <Route exact path="/labappointent" component={LabAppointment} />
+            <Route exact path="/labappointment" component={LabAppointment} />
             <Route exact path="/patholabs" component={PathoLabs}/>
             <Route exact path="/hospitals" component={Hospitals}/>
             <Route exact path="/healthinsurance" component={HealthInsurance}/>

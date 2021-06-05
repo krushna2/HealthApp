@@ -76,7 +76,7 @@ export const listLabAppointment=(labID)=>async(dispatch)=>{
     try{  
         // dispatch({type:USER_APP_LIST_REQUEST})
         console.log("labID ",labID)
-        const appointments = await axios.get("/api/labs/appointments/request"+labID);
+        const appointments = await axios.get("/api/labs/appointments/request/"+labID);
         console.log("from server app request ",appointments)
         dispatch({type:LAB_APP_LIST_SUCCESS,payload:appointments.data})     
     }catch(err){
