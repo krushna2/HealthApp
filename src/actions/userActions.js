@@ -12,7 +12,8 @@ import {
   USER_APP_LIST_SUCCESS,
   USER_APP_LIST_REQUEST,
   LAB_LIST_FAILED,
-  LAB_LIST_SUCCESS
+  LAB_LIST_SUCCESS,
+  MAKE_REQ_FAILED
 } from "./userActionTypes";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -100,5 +101,16 @@ export const listLab=()=>async (dispatch)=>{
  
   }catch(err){
     dispatch({type:LAB_LIST_FAILED,payload:err.message})
+  }
+}
+
+export const makeReqToLab=(labId,user)=>async(dispatch)=>{
+  try{
+      const appointment= await axios.patch("/api/labs/appointment/request/"+labId,user)
+      if(appointment){
+        alert("Your request is successfully send to perticular lab")
+      }
+  }catch(err){
+    alert("Error occured : "+err.message)
   }
 }

@@ -75,15 +75,27 @@ export const logoutLab = (history) => dispatch => {
 export const listLabAppointment=(labID)=>async(dispatch)=>{
     try{  
         // dispatch({type:USER_APP_LIST_REQUEST})
-        console.log("labID ",labID)
+        // console.log("labID ",labID)
         const appointments = await axios.get("/api/labs/appointments/request/"+labID);
-        console.log("from server app request ",appointments)
+        // console.log("from server app request ",appointments)
         dispatch({type:LAB_APP_LIST_SUCCESS,payload:appointments.data})     
     }catch(err){
       dispatch({type:LAB_APP_LIST_FAILED,payload:err.message})
     }
 }
 
+export const confirmUserApp=(labinfo,user,slot)=>async(dispatch)=>{
+    try{  
+          const lab = {...labinfo,...slot}
+          const appointment= await axios.patch("/api/users/appointment/"+user.userId,lab);
+          if(appointment){
+            console.log("appointment is confirmed for "+user.name+" from "+lab.labName);
+            alert("appointment is confirmed for "+user.name)
+          }
+    }catch(err){
+
+    }
+}
 // export const listLab=()=>async (dispatch)=>{
 //   try{
 //       const labs =  await axios.get("/api/labs/");

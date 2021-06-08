@@ -3,13 +3,20 @@ import {useDispatch,useSelector} from 'react-redux';
 import {Container,Row,Col} from 'react-bootstrap';
 import {Animated} from 'react-animated-css';
 import Button from "@material-ui/core/Button";
-import {listLab} from '../actions/userActions';
+import {listLab, makeReqToLab} from '../actions/userActions';
 
 const Lab = () => {
 
     const dispatch = useDispatch();
     const labList = useSelector(state => state.labList)
     const {loading,labs,error}=labList;
+    const userLogin = useSelector(state => state.userLogin)
+    const {userInfo}=userLogin
+    console.log(userInfo)
+
+    const requestHandler=(labId,user)=>{
+        dispatch(makeReqToLab(labId,user))
+    }
 
     useEffect(() => {
         dispatch(listLab())
@@ -48,7 +55,8 @@ const Lab = () => {
                                 </Col>
                                 <Col md={12} sm={12}>
                                     <div>
-                                        <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Make Request</Button>
+                                        <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}}
+                                         onClick={() => requestHandler(lab._id,userInfo)} variant="contained">Make Request</Button>
                                     </div>
                                 </Col>
 

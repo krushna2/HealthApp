@@ -1,37 +1,47 @@
-import React,{useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
-import {Container,Row,Col,InputGroup,Modal,FormControl} from 'react-bootstrap';
+import {Container,Row,Col,InputGroup,Modal,Form,FormControl} from 'react-bootstrap';
 import {Animated} from 'react-animated-css';
 import Button from "@material-ui/core/Button";
-import { listLabAppointment } from '../actions/labActions';
+import { confirmUserApp, listLabAppointment } from '../actions/labActions';
 // import Button from "@material-ui/core/Button";
 
     function MyVerticallyCenteredModal(props) {
-        return (
+        const [date, setDate] = useState('');
+        const [time, setTime] = useState('');
+        const dispatch = useDispatch();
+        const submitHandler=(e)=>{
+            e.preventDefault();
+            dispatch(confirmUserApp(props.labinfo,props.user,{date,time}));
+        }
+      return (
           <Modal
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
           >
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-vcenter">
-                Set Appointment
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>Date</InputGroup.Text>
-                    <FormControl aria-label="First name" />
-                </InputGroup>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>Time</InputGroup.Text>
-                    <FormControl aria-label="First name" />
-                </InputGroup>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Confirm</Button>
-            </Modal.Footer>
+            <Form onSubmit={submitHandler}>
+                <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Set Appointment
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text>Date</InputGroup.Text>
+                        <FormControl onChange={(e) => setDate(e.target.value)} aria-label="First name" />
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text>Time</InputGroup.Text>
+                        <FormControl onChange={(e) => setTime(e.target.value)} aria-label="First name" />
+                    </InputGroup>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}}
+                    variant="contained">Confirm</Button>
+                </Modal.Footer>
+            </Form>
           </Modal>
         );
       }
@@ -83,6 +93,8 @@ const LabAppointment = () => {
                                             <MyVerticallyCenteredModal
                                                 show={modalShow}
                                                 onHide={() => setModalShow(false)}
+                                                user={appointment}
+                                                labinfo={labInfo}
                                             />
                                             <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Cancel</Button>
                                         </div>
