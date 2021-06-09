@@ -1,25 +1,28 @@
 import React,{useState,useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
-import {Container,Row,Col,InputGroup,Modal,Form,FormControl} from 'react-bootstrap';
+import {Container,Row,Col,InputGroup,Form,FormControl} from 'react-bootstrap';
 import {Animated} from 'react-animated-css';
 import Button from "@material-ui/core/Button";
 import { confirmUserApp, listLabAppointment } from '../actions/labActions';
-// import Button from "@material-ui/core/Button";
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 
-    // function MyVerticallyCenteredModal(props) {
-    //     console.log("Props ",props)
-        // const [date, setDate] = useState('');
-        // const [time, setTime] = useState('');
-        // const dispatch = useDispatch();
-        // const submitHandler=(e)=>{
-        //     e.preventDefault();
-        //     alert("appointment is accepted for"+props.user.name+" in "+props.labinfo.labName+` appointment on ${date} at ${time}`)
-        //     // dispatch(confirmUserApp(props.labinfo,props.user,{date,time}));
-        // }
-    //   return (
-          
-    //     );
-    //   }
+const useStyles = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      border: '2px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+    },
+  }));
+  
 
 const LabAppointment = () => {
 
@@ -39,19 +42,24 @@ const LabAppointment = () => {
 
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
-    const [modalShow, setModalShow] = React.useState(false);
+    const classes = useStyles();
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => {
+        setOpen(true);
+      };
+    
+      const handleClose = () => {
+        setOpen(false);
+      };
+    
 
     const submitHandler=(e)=>{
         e.preventDefault();
         alert("appointment is accepted")
         // dispatch(confirmUserApp(props.labinfo,props.user,{date,time}));
     }
-    const handleOpen=(info)=>{
-        setModalShow(true)
-    }
-    const handleClose=()=>{
-        setModalShow(false)
-    }
+   
+
     return(
         <div>
             {
@@ -78,13 +86,39 @@ const LabAppointment = () => {
                                     </Col>
                                     <Col md={12} sm={12}>
                                         <div>
-                                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={() => handleOpen(appointment)}>Accept</Button>
-                                            {/* <MyVerticallyCenteredModal
-                                                show={modalShow}
-                                                onHide={() => setModalShow(false)}
-                                                user={appointment}
-                                                labinfo={labInfo}
-                                            /> */}
+                                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={handleOpen}>Accept</Button>
+                                            <Modal
+                                                aria-labelledby="transition-modal-title"
+                                                aria-describedby="transition-modal-description"
+                                                className={classes.modal}
+                                                open={open}
+                                                onClose={handleClose}
+                                                closeAfterTransition
+                                                BackdropComponent={Backdrop}
+                                                BackdropProps={{
+                                                timeout: 500,
+                                                }}
+                                            >
+                                                <Fade in={open}>
+                                                <div className={classes.paper}>
+                                                    <Form>
+                                                        <Form.Group className="mb-3" controlId="date">
+                                                            <Form.Label>Date:</Form.Label>
+                                                            <Form.Control type="text" />
+                                                            <Form.Text className="text-muted">
+                                                            Date format:-DD/MM/YYYY
+                                                            </Form.Text>
+                                                        </Form.Group>
+
+                                                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                                                            <Form.Label>Time</Form.Label>
+                                                            <Form.Control type="text"/>
+                                                        </Form.Group>
+                                                        <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={handleClose}>Confirm</Button>
+                                                    </Form>
+                                                </div>
+                                                </Fade>
+                                            </Modal>
                                             <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Cancel</Button>
                                         </div>
                                     </Col>
@@ -94,7 +128,7 @@ const LabAppointment = () => {
                     )   
             }  
                <div>
-               <Modal
+               {/* <Modal
                     open={modalShow}
                     onClose={handleClose}
                     size="lg"
@@ -122,7 +156,7 @@ const LabAppointment = () => {
                             variant="contained">Confirm</Button>
                         </Modal.Footer>
                     </Form>
-                </Modal>
+                </Modal> */}
                </div>         
         </div>
     );
