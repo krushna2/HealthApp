@@ -102,6 +102,7 @@ const LabAppointment = () => {
                                                 <Fade in={open}>
                                                 <div className={classes.paper}>
                                                     <Form>
+                                                        <h2>Confirm your slot</h2>
                                                         <Form.Group className="mb-3" controlId="date">
                                                             <Form.Label>Date:</Form.Label>
                                                             <Form.Control type="text" />
