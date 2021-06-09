@@ -6,45 +6,20 @@ import Button from "@material-ui/core/Button";
 import { confirmUserApp, listLabAppointment } from '../actions/labActions';
 // import Button from "@material-ui/core/Button";
 
-    function MyVerticallyCenteredModal(props) {
-        const [date, setDate] = useState('');
-        const [time, setTime] = useState('');
-        const dispatch = useDispatch();
-        const submitHandler=(e)=>{
-            e.preventDefault();
-            dispatch(confirmUserApp(props.labinfo,props.user,{date,time}));
-        }
-      return (
-          <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Form onSubmit={submitHandler}>
-                <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Set Appointment
-                </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Text>Date</InputGroup.Text>
-                        <FormControl onChange={(e) => setDate(e.target.value)} aria-label="First name" />
-                    </InputGroup>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Text>Time</InputGroup.Text>
-                        <FormControl onChange={(e) => setTime(e.target.value)} aria-label="First name" />
-                    </InputGroup>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}}
-                    variant="contained">Confirm</Button>
-                </Modal.Footer>
-            </Form>
-          </Modal>
-        );
-      }
+    // function MyVerticallyCenteredModal(props) {
+    //     console.log("Props ",props)
+        // const [date, setDate] = useState('');
+        // const [time, setTime] = useState('');
+        // const dispatch = useDispatch();
+        // const submitHandler=(e)=>{
+        //     e.preventDefault();
+        //     alert("appointment is accepted for"+props.user.name+" in "+props.labinfo.labName+` appointment on ${date} at ${time}`)
+        //     // dispatch(confirmUserApp(props.labinfo,props.user,{date,time}));
+        // }
+    //   return (
+          
+    //     );
+    //   }
 
 const LabAppointment = () => {
 
@@ -62,7 +37,21 @@ const LabAppointment = () => {
         }
     }, [appointmentList])
 
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
     const [modalShow, setModalShow] = React.useState(false);
+
+    const submitHandler=(e)=>{
+        e.preventDefault();
+        alert("appointment is accepted")
+        // dispatch(confirmUserApp(props.labinfo,props.user,{date,time}));
+    }
+    const handleOpen=(info)=>{
+        setModalShow(true)
+    }
+    const handleClose=()=>{
+        setModalShow(false)
+    }
     return(
         <div>
             {
@@ -89,13 +78,13 @@ const LabAppointment = () => {
                                     </Col>
                                     <Col md={12} sm={12}>
                                         <div>
-                                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={() => setModalShow(true)}>Accept</Button>
-                                            <MyVerticallyCenteredModal
+                                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={() => handleOpen(appointment)}>Accept</Button>
+                                            {/* <MyVerticallyCenteredModal
                                                 show={modalShow}
                                                 onHide={() => setModalShow(false)}
                                                 user={appointment}
                                                 labinfo={labInfo}
-                                            />
+                                            /> */}
                                             <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Cancel</Button>
                                         </div>
                                     </Col>
@@ -104,7 +93,37 @@ const LabAppointment = () => {
                         </Animated> 
                     )   
             }  
-                        
+               <div>
+               <Modal
+                    open={modalShow}
+                    onClose={handleClose}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                >
+                    <Form onSubmit={submitHandler}>
+                        <Modal.Header closeButton>
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            Set Appointment
+                        </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <InputGroup className="mb-3">
+                                <InputGroup.Text>Date</InputGroup.Text>
+                                <FormControl onChange={(e) => setDate(e.target.value)} aria-label="First name" />
+                            </InputGroup>
+                            <InputGroup className="mb-3">
+                                <InputGroup.Text>Time</InputGroup.Text>
+                                <FormControl onChange={(e) => setTime(e.target.value)} aria-label="First name" />
+                            </InputGroup>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}}
+                            variant="contained">Confirm</Button>
+                        </Modal.Footer>
+                    </Form>
+                </Modal>
+               </div>         
         </div>
     );
 }
