@@ -128,35 +128,6 @@ const LabAppointment = () => {
                     )   
             }  
                <div>
-               {/* <Modal
-                    open={modalShow}
-                    onClose={handleClose}
-                    size="lg"
-                    aria-labelledby="contained-modal-title-vcenter"
-                    centered
-                >
-                    <Form onSubmit={submitHandler}>
-                        <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title-vcenter">
-                            Set Appointment
-                        </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <InputGroup className="mb-3">
-                                <InputGroup.Text>Date</InputGroup.Text>
-                                <FormControl onChange={(e) => setDate(e.target.value)} aria-label="First name" />
-                            </InputGroup>
-                            <InputGroup className="mb-3">
-                                <InputGroup.Text>Time</InputGroup.Text>
-                                <FormControl onChange={(e) => setTime(e.target.value)} aria-label="First name" />
-                            </InputGroup>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}}
-                            variant="contained">Confirm</Button>
-                        </Modal.Footer>
-                    </Form>
-                </Modal> */}
                </div>         
         </div>
     );
