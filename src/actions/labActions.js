@@ -84,13 +84,12 @@ export const listLabAppointment=(labID)=>async(dispatch)=>{
     }
 }
 
-export const confirmUserApp=(labinfo,user,slot)=>async(dispatch)=>{
+export const confirmUserApp=(labInfo,user,labAppId,slot)=>async(dispatch)=>{
     try{  
-          const lab = {...labinfo,...slot}
+          const lab = {...labInfo,...slot}
           const appointment= await axios.patch("/api/users/appointment/"+user.userId,lab);
           if(appointment){
-            console.log("appointment is confirmed for "+user.name+" from "+lab.labName);
-            alert("appointment is confirmed for "+user.name)
+            alert("appointment is confirmed for "+user.userName)
           }
     }catch(err){
 
