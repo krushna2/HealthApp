@@ -44,8 +44,14 @@ const LabAppointment = () => {
     const [time, setTime] = useState('');
     const classes = useStyles();
     const [open, setOpen] = useState(false);
-    const handleOpen = () => {
+    const [userId, setUserId] = useState('');
+    const [userName, setUserName] = useState('')
+    const [labAppId, setLabAppId] = useState('')
+    const handleOpen = (info) => {
         setOpen(true);
+        setUserId(info.userId);
+        setLabAppId(info._id);
+        setUserName(info.name)
       };
     
       const handleClose = () => {
@@ -55,8 +61,8 @@ const LabAppointment = () => {
 
     const submitHandler=(e)=>{
         e.preventDefault();
-        alert("appointment is accepted")
-        // dispatch(confirmUserApp(props.labinfo,props.user,{date,time}));
+        handleClose();
+        dispatch(confirmUserApp(labInfo,{userId,userName},labAppId,{date,time}));
     }
    
 
@@ -101,11 +107,11 @@ const LabAppointment = () => {
                                             >
                                                 <Fade in={open}>
                                                 <div className={classes.paper}>
-                                                    <Form>
+                                                    <Form onSubmit={submitHandler}>
                                                         <h2>Confirm your slot</h2>
                                                         <Form.Group className="mb-3" controlId="date">
                                                             <Form.Label>Date:</Form.Label>
-                                                            <Form.Control type="text" />
+                                                            <Form.Control onChange={e=>setDate(e.target.value)} type="text" />
                                                             <Form.Text className="text-muted">
                                                             Date format:-DD/MM/YYYY
                                                             </Form.Text>
@@ -113,9 +119,10 @@ const LabAppointment = () => {
 
                                                         <Form.Group className="mb-3" controlId="formBasicPassword">
                                                             <Form.Label>Time</Form.Label>
-                                                            <Form.Control type="text"/>
+                                                            <Form.Control onChange={e=>setTime(e.target.value)} type="text"/>
                                                         </Form.Group>
                                                         <Button type="submit" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={handleClose}>Confirm</Button>
+                                                        
                                                     </Form>
                                                 </div>
                                                 </Fade>
