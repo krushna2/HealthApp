@@ -102,7 +102,7 @@ const LabAppointment = () => {
                                             }
                                     </Col>
                                     <div>
-                                        <Modal
+                                            <Modal
                                                 aria-labelledby="transition-modal-title"
                                                 aria-describedby="transition-modal-description"
                                                 className={classes.modal}
@@ -130,12 +130,13 @@ const LabAppointment = () => {
                                                             <Form.Label>Time</Form.Label>
                                                             <Form.Control onChange={e=>setTime(e.target.value)} type="text"/>
                                                         </Form.Group>
-                                                        <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Confirm</Button>
+                                                        <Button type="submit" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={handleClose}>Confirm</Button>
+                                                        
                                                     </Form>
                                                 </div>
                                                 </Fade>
                                             </Modal>
-                                    </div>
+                                        </div>
                                     </Row>
                             </Container>
                         </Animated> 

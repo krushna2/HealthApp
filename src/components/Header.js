@@ -32,6 +32,7 @@ const Header = (props) => {
                 </Navbar>
             </Container>
             </div>
+            <div className="header2-background">
             <Container>
                 <Navbar className="header2" expand="lg">
                 <Navbar.Brand href="#home">Health Center</Navbar.Brand>
@@ -79,6 +80,7 @@ const Header = (props) => {
                 </Navbar.Collapse>
                 </Navbar>
             </Container>
+            </div>
         </>
     )
 }
