@@ -56,13 +56,4 @@ import { LAB_APP_LIST_FAILED, LAB_APP_LIST_SUCCESS, LAB_LOADING, LAB_LOGIN_FAILE
         }
     }
   
-    // export const listLabReducer=(state={labs:[],loading:true},action)=>{
-    //     switch(action.type){
-    //       case LAB_LIST_SUCCESS:
-    //         return {...state,loading:false,labs:action.payload};
-    //       case LAB_LIST_FAILED:
-    //         return {...state,loading:false,error:action.payload};
-    //       default:
-    //         return state;
-    //     }
-    // }
+  

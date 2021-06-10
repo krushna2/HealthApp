@@ -3,7 +3,7 @@ import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 // import Cookie from 'js-cookie';
 
-import { LAB_APP_LIST_FAILED, LAB_APP_LIST_SUCCESS, LAB_LOADING, LAB_LOGIN_FAILED, LAB_REGISTER_FAILED, LAB_REGISTER_REQUEST, SET_CURRENT_LAB } from "./labActionTypes";
+import { LAB_APP_LIST_FAILED, LAB_APP_LIST_SUCCESS, LAB_APP_UPDATE, LAB_APP_UPDATE_FAILED, LAB_LOADING, LAB_LOGIN_FAILED, LAB_REGISTER_FAILED, LAB_REGISTER_REQUEST, SET_CURRENT_LAB } from "./labActionTypes";
 // Register User
 export const registerLab = (labData, history) => dispatch => {
   dispatch({
@@ -89,10 +89,15 @@ export const confirmUserApp=(labInfo,user,labAppId,slot)=>async(dispatch)=>{
           const lab = {...labInfo,...slot}
           const appointment= await axios.patch("/api/users/appointment/"+user.userId,lab);
           if(appointment){
-            alert("appointment is confirmed for "+user.userName)
+            alert("Appointment is confirmed for "+user.userName+" on "+slot.date+" at "+slot.time);
+            const updated = await axios.patch("/api/labs/appointment/request/"+labInfo.labId,labAppId);
+            console.log("update user app list ",updated.data)
+            if(updated){
+              dispatch({type:LAB_APP_LIST_SUCCESS,payload:updated.data})
+            }
           }
     }catch(err){
-
+      alert("Error is occured "+err.message)
     }
 }
 // export const listLab=()=>async (dispatch)=>{

@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-
 const useStyles = makeStyles((theme) => ({
     modal: {
       display: 'flex',
@@ -51,7 +50,7 @@ const LabAppointment = () => {
         setOpen(true);
         setUserId(info.userId);
         setLabAppId(info._id);
-        setUserName(info.name)
+        setUserName(info.name);
       };
     
       const handleClose = () => {
@@ -59,10 +58,10 @@ const LabAppointment = () => {
       };
     
 
-    const submitHandler=(e)=>{
+    const submitHandler=async(e)=>{
         e.preventDefault();
         handleClose();
-        dispatch(confirmUserApp(labInfo,{userId,userName},labAppId,{date,time}));
+        // dispatch(confirmUserApp(labInfo,{userId,userName},labAppId,{date,time}));
     }
    
 
@@ -91,9 +90,19 @@ const LabAppointment = () => {
                                         </div>
                                     </Col>
                                     <Col md={12} sm={12}>
-                                        <div>
-                                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={()=>handleOpen(appointment)}>Accept</Button>
-                                            <Modal
+                                            {
+                                                appointment.isAccepted?
+                                                <div>
+                                                    <Button type="button" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" >Upload Report</Button>
+                                                </div>:
+                                                <div>
+                                                <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={()=>handleOpen(appointment)}>Accept</Button>
+                                                <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Cancel</Button>
+                                                </div>
+                                            }
+                                    </Col>
+                                    <div>
+                                        <Modal
                                                 aria-labelledby="transition-modal-title"
                                                 aria-describedby="transition-modal-description"
                                                 className={classes.modal}
@@ -126,9 +135,7 @@ const LabAppointment = () => {
                                                 </div>
                                                 </Fade>
                                             </Modal>
-                                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Cancel</Button>
-                                        </div>
-                                    </Col>
+                                    </div>
                                     </Row>
                             </Container>
                         </Animated> 
