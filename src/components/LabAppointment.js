@@ -86,7 +86,7 @@ const LabAppointment = () => {
                                     </Col>
                                     <Col md={12} sm={12}>
                                         <div>
-                                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={handleOpen}>Accept</Button>
+                                            <Button type="submit" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh",marginRight:"2vw"}} variant="contained" onClick={handleOpen}>Accept</Button>
                                             <Modal
                                                 aria-labelledby="transition-modal-title"
                                                 aria-describedby="transition-modal-description"
@@ -115,12 +115,12 @@ const LabAppointment = () => {
                                                             <Form.Label>Time</Form.Label>
                                                             <Form.Control type="text"/>
                                                         </Form.Group>
-                                                        <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={handleClose}>Confirm</Button>
+                                                        <Button type="submit" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={handleClose}>Confirm</Button>
                                                     </Form>
                                                 </div>
                                                 </Fade>
                                             </Modal>
-                                            <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Cancel</Button>
+                                            <Button type="submit" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh",marginRight:"2vw"}} variant="contained">Cancel</Button>
                                         </div>
                                     </Col>
                                     </Row>
