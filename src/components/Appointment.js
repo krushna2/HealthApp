@@ -59,6 +59,16 @@ const Appointment = () => {
                                             <h5>Appointment status: {appointment.status ? <span>Confirmed</span>: <span>Pending</span> } </h5>
                                         </div>
                                     </Col>
+                                    <Col md={6} sm={6}>
+                                        <div>
+                                            <h5>Appointment Date: {appointment.date } </h5>
+                                        </div>
+                                    </Col>
+                                    <Col md={6} sm={6}>
+                                        <div>
+                                            <h5>Appointment Time: {appointment.time } </h5>
+                                        </div>
+                                    </Col>
                                     </Row>
                             </Container>
                         </Animated>

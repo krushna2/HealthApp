@@ -61,7 +61,7 @@ const LabAppointment = () => {
     const submitHandler=async(e)=>{
         e.preventDefault();
         handleClose();
-        // dispatch(confirmUserApp(labInfo,{userId,userName},labAppId,{date,time}));
+        dispatch(confirmUserApp(labInfo,{userId,userName},labAppId,{date,time}));
     }
    
 
