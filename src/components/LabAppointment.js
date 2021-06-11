@@ -8,6 +8,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import Doctor from '../images/Doctor3.png';
+
+   
 const useStyles = makeStyles((theme) => ({
     modal: {
       display: 'flex',
@@ -63,6 +66,29 @@ const LabAppointment = () => {
         handleClose();
         dispatch(confirmUserApp(labInfo,{userId,userName},labAppId,{date,time}));
     }
+
+
+      const labelStyle = {
+        color:'#393939',
+        fontWeight:'500',
+        display:'inline-block',
+        marginBottom:'5px'
+    }
+
+    const formControl = {
+        background:'#f9f9f9',
+        border:'none',
+        borderRadius:'3px',
+        fontSize:'14px',
+        fontWeight:'normal',
+        marginBottom:'15px',
+        transition:'all ease-in-out 0.4s',
+        display:'block',
+        width:'100%',
+        color:'#555',
+        height:'45px'
+    }
+
    
 
     return(
@@ -93,11 +119,11 @@ const LabAppointment = () => {
                                             {
                                                 appointment.isAccepted?
                                                 <div>
-                                                    <Button type="button" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" >Upload Report</Button>
+                                                    <Button href="/report" type="button" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" >Upload Report</Button>
                                                 </div>:
                                                 <div>
-                                                <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" onClick={()=>handleOpen(appointment)}>Accept</Button>
-                                                <Button type="submit" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained">Cancel</Button>
+                                                <Button type="submit" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh",marginRight:"2vw"}} variant="contained" onClick={()=>handleOpen(appointment)}>Accept</Button>
+                                                <Button type="submit" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh",marginRight:"2vw"}} variant="contained">Cancel</Button>
                                                 </div>
                                             }
                                     </Col>

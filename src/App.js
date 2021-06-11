@@ -18,7 +18,11 @@ import LabAppointment from './components/LabAppointment';
 import PathoLabs from './components/PathoLabs';
 import Hospitals from './components/Hospitals';
 import HealthInsurance from './components/HealthInsurance';
+<<<<<<< HEAD
 import Footer from './components/Footer';
+=======
+import Report from './components/Report';
+>>>>>>> 704cdc3ac566a0bd3c2567f52f6ada6f28debe58
 
 function App() {
 
@@ -46,6 +50,7 @@ function App() {
             <Route exact path="/patholabs" component={PathoLabs}/>
             <Route exact path="/hospitals" component={Hospitals}/>
             <Route exact path="/healthinsurance" component={HealthInsurance}/>
+            <Route exact path="/report" component={Report}/>
           </div>
           <Footer/>
         </div>
