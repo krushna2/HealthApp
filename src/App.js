@@ -18,6 +18,7 @@ import LabAppointment from './components/LabAppointment';
 import PathoLabs from './components/PathoLabs';
 import Hospitals from './components/Hospitals';
 import HealthInsurance from './components/HealthInsurance';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
             <Route exact path="/hospitals" component={Hospitals}/>
             <Route exact path="/healthinsurance" component={HealthInsurance}/>
           </div>
+          <Footer/>
         </div>
       </BrowserRouter>
     
