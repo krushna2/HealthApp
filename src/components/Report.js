@@ -25,14 +25,14 @@ const Report = () =>{
         display:'block',
         width:'100%',
         color:'#555',
-        height:'45px'
+        height:'30px'
     }
     return(
         <div>
             <Container>
                 <Row>
                     <Col md={6} sm={6}>
-                        <img alt="register" style={{height:"100%",marginTop:"5vh"}} className="img-responsive" src={Doctor}></img>
+                        <img alt="register" style={{height:"70%",marginTop:"5vh"}} className="img-responsive" src={Doctor}></img>
                     </Col>
                     <Col md={6} sm={6}>
                         <Form className="report-form" role="form" >
@@ -88,7 +88,7 @@ const Report = () =>{
                                     <Row>
                                         <Col md={12} sm={12}>
                                             <Form.Group>
-                                                <Button type="submit" style={{width:"100%",marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white"}} variant="contained">Upload</Button>
+                                                <Button type="submit" style={{width:"100%",marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white"}} variant="contained">Upload</Button>
                                             </Form.Group>
                                         </Col>
                                     </Row>
