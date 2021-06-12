@@ -20,6 +20,7 @@ import Hospitals from './components/Hospitals';
 import HealthInsurance from './components/HealthInsurance';
 import Footer from './components/Footer';
 import Report from './components/Report';
+import Reports from './components/Reports';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
             <Route exact path="/hospitals" component={Hospitals}/>
             <Route exact path="/healthinsurance" component={HealthInsurance}/>
             <Route exact path="/report" component={Report}/>
+            <Route exact path="/reports" component={Reports}/>
           </div>
           <Footer/>
         </div>
