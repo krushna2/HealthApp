@@ -43,16 +43,17 @@ const Report = (props) =>{
     const submitHandler=(e)=>{
         e.preventDefault();
         const newReport={ 
-            pregnancies,
-            glucose,
-            bloodPressure,
-            skinThickness,
-            insulin,
-            bmi,
-            diabetesPedigreeFunction,
-            age
+            Pregnancies:pregnancies,
+            Glucose:glucose,
+            BloodPressure:bloodPressure,
+            SkinThickness:skinThickness,
+            Insulin:insulin,
+            BMI:bmi,
+            DiabetesPedigreeFunction:diabetesPedigreeFunction,
+            Age:age
         }
         dispatch(sendReport(newReport,userId))
+        props.history.push('/labappointment')
     }
     return(
         <div>

@@ -102,9 +102,10 @@ export const confirmUserApp=(labInfo,user,labAppId,slot)=>async(dispatch)=>{
 }
 
 export const sendReport=(report,userId)=>async(dispatch)=>{
-    const result= await axios.post('https://diabeteshealthapp.herokuapp.com/predict',report);
+  console.log(report)
+    const result= await axios.post('/api/reports/predict',report);
     if(result){
-      alert(result)
+      console.log("Result ",result)
     }
 }
 // export const listLab=()=>async (dispatch)=>{
