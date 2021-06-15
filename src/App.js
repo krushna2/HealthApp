@@ -48,7 +48,7 @@ function App() {
             <Route exact path="/patholabs" component={PathoLabs}/>
             <Route exact path="/hospitals" component={Hospitals}/>
             <Route exact path="/healthinsurance" component={HealthInsurance}/>
-            <Route exact path="/report" component={Report}/>
+            <Route exact path="/report/:id" component={Report}/>
             <Route exact path="/reports" component={Reports}/>
           </div>
           <Footer/>

@@ -100,6 +100,13 @@ export const confirmUserApp=(labInfo,user,labAppId,slot)=>async(dispatch)=>{
       alert("Error is occured "+err.message)
     }
 }
+
+export const sendReport=(report,userId)=>async(dispatch)=>{
+    const result= await axios.post('https://diabeteshealthapp.herokuapp.com/predict',report);
+    if(result){
+      alert(result)
+    }
+}
 // export const listLab=()=>async (dispatch)=>{
 //   try{
 //       const labs =  await axios.get("/api/labs/");

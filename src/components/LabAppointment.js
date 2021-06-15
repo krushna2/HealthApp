@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   }));
   
 
-const LabAppointment = () => {
+const LabAppointment = (props) => {
 
     const dispatch = useDispatch()
 
@@ -60,7 +60,9 @@ const LabAppointment = () => {
         setOpen(false);
       };
     
-
+      const uploadHandler=(u)=>{
+          props.history.push('/report/'+u.userId);
+      }
     const submitHandler=async(e)=>{
         e.preventDefault();
         handleClose();
@@ -119,7 +121,8 @@ const LabAppointment = () => {
                                             {
                                                 appointment.isAccepted?
                                                 <div>
-                                                    <Button href="/report" type="button" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}} variant="contained" >Upload Report</Button>
+                                                    <Button type="button" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}}
+                                                    onClick={uploadHandler(appointment)} variant="contained" >Upload Report</Button>
                                                 </div>:
                                                 <div>
                                                 <Button type="submit" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh",marginRight:"2vw"}} variant="contained" onClick={()=>handleOpen(appointment)}>Accept</Button>
