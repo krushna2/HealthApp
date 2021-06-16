@@ -13,7 +13,9 @@ import {
   USER_APP_LIST_REQUEST,
   LAB_LIST_FAILED,
   LAB_LIST_SUCCESS,
-  MAKE_REQ_FAILED
+  MAKE_REQ_FAILED,
+  REPORT_LIST_FAILED,
+  REPORT_LIST_SUCCESS
 } from "./userActionTypes";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -112,5 +114,16 @@ export const makeReqToLab=(labId,user)=>async(dispatch)=>{
       }
   }catch(err){
     alert("Error occured : "+err.message)
+  }
+}
+
+export const listReport=(userID)=>async(dispatch)=>{
+  try{
+      const reports= await axios.get('/api/reports/'+userID);
+      if(reports){
+        dispatch({type:REPORT_LIST_SUCCESS,payload:reports.data})
+      }
+  }catch(err){
+    dispatch({type:REPORT_LIST_FAILED,payload:err.message})
   }
 }

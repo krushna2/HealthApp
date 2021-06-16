@@ -16,7 +16,7 @@ const Header = (props) => {
 
     const labLogin = useSelector(state => state.labLogin)
     const {labInfo}=labLogin
-    console.log(labInfo)
+    
    
     return(
         <>

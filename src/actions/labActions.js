@@ -102,10 +102,17 @@ export const confirmUserApp=(labInfo,user,labAppId,slot)=>async(dispatch)=>{
 }
 
 export const sendReport=(report,userId)=>async(dispatch)=>{
-  console.log(report)
     const result= await axios.post('/api/reports/predict',report);
     if(result){
-      console.log("Result ",result)
+      const saveReport={
+        ...report,
+        userId,
+        prediction:result.data
+      }
+      const saved=await axios.post('/api/reports/',saveReport);
+      if(saved){
+        alert("Report send successfully");
+      }
     }
 }
 // export const listLab=()=>async (dispatch)=>{

@@ -1,6 +1,8 @@
 import {
   LAB_LIST_FAILED,
   LAB_LIST_SUCCESS,
+  REPORT_LIST_FAILED,
+  REPORT_LIST_SUCCESS,
     SET_CURRENT_USER,
   USER_APP_LIST_FAILED,
   // USER_APP_LIST_REQUEST,
@@ -74,4 +76,15 @@ import { USER_REGISTER_REQUEST, USER_REGISTER_FAILED } from "../actions/userActi
         default:
           return state;
       }
+  }
+
+  export const listReportReducer=(state={loading:true,reports:[]},action)=>{
+    switch(action.type){
+      case REPORT_LIST_SUCCESS:
+        return {...state,loading:false,reports:action.payload};
+      case REPORT_LIST_FAILED:
+        return {...state,loading:false,error:action.payload};
+      default:
+        return state;
+    }
   }
