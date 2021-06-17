@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
-import {Container,Row,Col,InputGroup,Form,FormControl} from 'react-bootstrap';
+import {Container,Row,Col,Form} from 'react-bootstrap';
 import {Animated} from 'react-animated-css';
 import Button from "@material-ui/core/Button";
 import { confirmUserApp, listLabAppointment } from '../actions/labActions';
@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import Doctor from '../images/Doctor3.png';
 
    
 const useStyles = makeStyles((theme) => ({
@@ -70,26 +69,7 @@ const LabAppointment = (props) => {
     }
 
 
-      const labelStyle = {
-        color:'#393939',
-        fontWeight:'500',
-        display:'inline-block',
-        marginBottom:'5px'
-    }
-
-    const formControl = {
-        background:'#f9f9f9',
-        border:'none',
-        borderRadius:'3px',
-        fontSize:'14px',
-        fontWeight:'normal',
-        marginBottom:'15px',
-        transition:'all ease-in-out 0.4s',
-        display:'block',
-        width:'100%',
-        color:'#555',
-        height:'45px'
-    }
+     
 
    
 

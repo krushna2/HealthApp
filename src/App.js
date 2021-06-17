@@ -21,6 +21,7 @@ import HealthInsurance from './components/HealthInsurance';
 import Footer from './components/Footer';
 import Report from './components/Report';
 import Reports from './components/Reports';
+import NearHospital from './components/NearHospitals';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
             <Route exact path="/healthinsurance" component={HealthInsurance}/>
             <Route exact path="/report/:id" component={Report}/>
             <Route exact path="/reports" component={Reports}/>
+            <Route exact path="/nearhospital" component={NearHospital}/>
           </div>
           <Footer/>
         </div>

@@ -6,7 +6,7 @@ const HealthInsurance = () => {
     return(
         <div>
             <h1 style={{textAlign:"center"}}>Government health insurance policies.</h1>
-            {/* <Animated >
+            <Animated >
                             <Container style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",marginTop:"2vh",paddingTop:"2vh"}}>
                                 <Row>
                                     <Col md={12} sm={12}>
@@ -23,7 +23,7 @@ const HealthInsurance = () => {
                                     </Col>
                                     </Row>
                             </Container>
-                        </Animated> */}
+                        </Animated>
         </div>
     );
 }
