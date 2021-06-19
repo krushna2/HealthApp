@@ -35,7 +35,7 @@ const Header = (props) => {
             <div className="header2-background">
             <Container>
                 <Navbar className="header2" expand="lg">
-                <Navbar.Brand href="#home">Health Center</Navbar.Brand>
+                <Navbar.Brand href="#home" style={{color:"#a5c422",fontWeight:"bolder",fontSize:"5vh"}}>Health Center</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="tabs ml-auto">
