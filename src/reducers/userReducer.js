@@ -1,4 +1,6 @@
 import {
+  HOSPITAL_LIST_FAILED,
+  HOSPITAL_LIST_SUCCESS,
   LAB_LIST_FAILED,
   LAB_LIST_SUCCESS,
   REPORT_LIST_FAILED,
@@ -87,4 +89,15 @@ import { USER_REGISTER_REQUEST, USER_REGISTER_FAILED } from "../actions/userActi
       default:
         return state;
     }
+  }
+
+  export const listHospitalsReducer=(state={loading:true,hospitals:[]},action)=>{
+      switch(action.type){
+        case HOSPITAL_LIST_SUCCESS:
+          return {...state,loading:false,hospitals:action.payload};
+        case HOSPITAL_LIST_FAILED:
+          return {...state,loading:false,error:action.payload};
+        default:
+          return state;
+      }
   }

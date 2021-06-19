@@ -15,7 +15,9 @@ import {
   LAB_LIST_SUCCESS,
   MAKE_REQ_FAILED,
   REPORT_LIST_FAILED,
-  REPORT_LIST_SUCCESS
+  REPORT_LIST_SUCCESS,
+  HOSPITAL_LIST_FAILED,
+  HOSPITAL_LIST_SUCCESS
 } from "./userActionTypes";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -125,5 +127,17 @@ export const listReport=(userID)=>async(dispatch)=>{
       }
   }catch(err){
     dispatch({type:REPORT_LIST_FAILED,payload:err.message})
+  }
+}
+
+export const listHospitals=(history,position)=>async(dispatch)=>{
+  try{
+      const hospitals= await axios.get('/api/users/hospitals',position);
+      if(hospitals){
+        history.push('/nearhospital');
+        dispatch({type:HOSPITAL_LIST_SUCCESS,payload:hospitals.data})
+      }
+  }catch(err){
+    dispatch({type:HOSPITAL_LIST_FAILED,payload:err.message})
   }
 }

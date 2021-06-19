@@ -1,7 +1,7 @@
 import { createStore,combineReducers ,applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { listLabAppointmentReducer, registerLabReducer,loginLabReducer } from "./reducers/labReducer";
-import { listLabReducer,
+import { listHospitalsReducer, listLabReducer,
   listReportReducer,
    listUserAppointmentReducer, 
    loginUserReducer, 
@@ -26,6 +26,7 @@ const reducer = combineReducers({
   labLogin:loginLabReducer,
   labAppointmentList:listLabAppointmentReducer,
   reportList:listReportReducer,
+  hospitalList:listHospitalsReducer,
 })
 const store = createStore(
   reducer,
