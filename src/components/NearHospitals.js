@@ -6,6 +6,7 @@ import {Animated} from 'react-animated-css';
 const NearHospital = () => {
     const hospitalList = useSelector(state => state.hospitalList);
     const {loading,hospitals,error}=hospitalList;
+    console.log("Redux Hospital List ",hospitals)
     return (
         <div>
             {

@@ -132,10 +132,12 @@ export const listReport=(userID)=>async(dispatch)=>{
 
 export const listHospitals=(history,position)=>async(dispatch)=>{
   try{
-      const hospitals= await axios.get('/api/users/hospitals',position);
+    console.log("user Position ",position)
+      const hospitals = await axios.get('/api/users/hospitals', position)
       if(hospitals){
         history.push('/nearhospital');
-        dispatch({type:HOSPITAL_LIST_SUCCESS,payload:hospitals.data})
+        console.log("Hospital List ",hospitals.data)
+        // dispatch({type:HOSPITAL_LIST_SUCCESS,payload:hospitals.data})
       }
   }catch(err){
     dispatch({type:HOSPITAL_LIST_FAILED,payload:err.message})
