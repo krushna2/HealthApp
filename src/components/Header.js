@@ -66,9 +66,7 @@ const Header = (props) => {
                                 <div className="registration">
                                     
                                     <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
-                                    <div>
-                                        <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
-                                    </div>
+                                    <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
                                 </div>
                             )
                         }
