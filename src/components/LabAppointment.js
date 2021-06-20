@@ -65,14 +65,10 @@ const LabAppointment = (props) => {
     const submitHandler=async(e)=>{
         e.preventDefault();
         handleClose();
+        // console.log(labInfo.labId)
         dispatch(confirmUserApp(labInfo,{userId,userName},labAppId,{date,time}));
     }
-
-
-     
-
-   
-
+    
     return(
         <div>
             {
