@@ -132,7 +132,7 @@ export const listReport=(userID)=>async(dispatch)=>{
 
 export const listHospitals=(history,position)=>async(dispatch)=>{
   try{
-
+      console.log("User Location ",position)
       const hospitals = await axios.post('/api/users/hospitals',position)
       if(hospitals){
         history.push('/nearhospital');

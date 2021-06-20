@@ -25,6 +25,8 @@ const Hospitals = (props) => {
       function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
       }
+    const [lat, setLat] = useState(0);
+    const [log, setLog] = useState(0);
   
     // const findPosition=()=>{
     //     if (navigator.geolocation) {
