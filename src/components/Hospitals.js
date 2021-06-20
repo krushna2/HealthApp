@@ -7,48 +7,30 @@ import Button from "@material-ui/core/Button";
 import { listHospitals } from '../actions/userActions';
 
 const Hospitals = (props) => {
-    const [latitude, setLat] = useState(0.0);
-    const [longitude, setLog] = useState(0.0);
-    var crd="";
-
-    function success(pos) {
-        var crd = pos.coords;
-      
-        console.log('Your current position is:');
-        console.log(`Latitude : ${crd.latitude}`);
-        console.log(`Longitude: ${crd.longitude}`);
-        setLat(crd.latitude);
-        setLog(crd.longitude);
-        console.log(`More or less ${crd.accuracy} meters.`);
-      }
-      
-      function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-      }
-    const [lat, setLat] = useState(0);
-    const [log, setLog] = useState(0);
+    const [lat, setLat] = useState(0.0);
+    const [log, setLog] = useState(0.0);
   
-    // const findPosition=()=>{
-    //     if (navigator.geolocation) {
-    //         navigator.geolocation.getCurrentPosition(setPosition);
-    //       } else { 
-    //         alert('Geolocation is not supported by this browser.')
-    //       }
-    // }
-    // const setPosition=(position)=>{
-    //     setLat(position.coords.latitude);
-    //     setLog(position.coords.longitude);
-    // }
+    const findPosition=()=>{
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(setPosition);
+          } else { 
+            alert('Geolocation is not supported by this browser.')
+          }
+    }
+    const setPosition=(position)=>{
+        setLat(position.coords.latitude);
+        setLog(position.coords.longitude);
+    }
   
     const dispatch = useDispatch();
     useEffect(() => {
-        if(crd.latitude && crd.longitude){
-            dispatch(listHospitals(props.history,{latitude,longitude}));
+        if(lat && log){
+            dispatch(listHospitals(props.history,{lat,log}));
         }
         return () => {
             // cleanup
         }
-    }, [latitude,longitude])
+    }, [lat,log])
 
     var options = {
         enableHighAccuracy: true,
@@ -56,9 +38,20 @@ const Hospitals = (props) => {
         maximumAge: 0
       };
       
+      function success(pos) {
+        var crd = pos.coords;
       
+        console.log('Your current position is:');
+        console.log(`Latitude : ${crd.latitude}`);
+        console.log(`Longitude: ${crd.longitude}`);
+        console.log(`More or less ${crd.accuracy} meters.`);
+      }
       
+      function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      }
       
+      navigator.geolocation.getCurrentPosition(success, error, options);
 
     return(
         <div>
@@ -80,7 +73,7 @@ const Hospitals = (props) => {
                                     For maintain above relation and provide some helps to patient, we provide a facility called nearby hospital.
                                     We shows you to the best hospitals from your area using your location and provide their address and information releated to them.
                                 </p>
-                                <Button type="button" style={{width:"100%",height:"7vh",backgroundColor:"#a5c422",color:"white"}} onClick={()=>navigator.geolocation.getCurrentPosition(success, error, options)} variant="contained">Find Hospitals</Button>
+                                <Button type="button" style={{width:"100%",height:"7vh",backgroundColor:"#a5c422",color:"white"}} onClick={()=>findPosition()} variant="contained">Find Hospitals</Button>
                             </div>
                         </Animated>    
                     </Col>     
