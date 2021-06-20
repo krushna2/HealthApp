@@ -130,10 +130,10 @@ export const listReport=(userID)=>async(dispatch)=>{
   }
 }
 
-export const listHospitals=(history,position)=>async(dispatch)=>{
+export const listHospitals=(history,lat,log)=>async(dispatch)=>{
   try{
-    console.log("user Position ",position)
-      const hospitals = await axios.get('/api/users/hospitals', position)
+    console.log("user Position "+lat+" "+log)
+      const hospitals = await axios.get('/api/users/hospitals',{lat,log})
       if(hospitals){
         history.push('/nearhospital');
         console.log("Hospital List ",hospitals.data)

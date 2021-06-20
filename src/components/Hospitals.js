@@ -25,11 +25,7 @@ const Hospitals = (props) => {
     const dispatch = useDispatch();
     useEffect(() => {
         if(lat && log){
-            const position={
-                lat,
-                log
-            }
-            dispatch(listHospitals(props.history,position));
+            dispatch(listHospitals(props.history,lat,log));
         }
         return () => {
             // cleanup
