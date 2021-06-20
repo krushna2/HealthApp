@@ -7,8 +7,8 @@ import Button from "@material-ui/core/Button";
 import { listHospitals } from '../actions/userActions';
 
 const Hospitals = (props) => {
-    const [lat, setLat] = useState(0.0);
-    const [log, setLog] = useState(0.0);
+    const [lat, setLat] = useState(0);
+    const [log, setLog] = useState(0);
   
     const findPosition=()=>{
         if (navigator.geolocation) {
