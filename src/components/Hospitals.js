@@ -19,7 +19,9 @@ const Hospitals = (props) => {
     }
     const setPosition=(position)=>{
         setLat(position.coords.latitude);
+        console.log(position.coords.latitude);
         setLog(position.coords.longitude);
+        console.log(position.coords.latitude);
     }
   
     const dispatch = useDispatch();

@@ -39,8 +39,8 @@ const Header = (props) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="tabs ml-auto">
-                        <Nav.Link className="nav-link" href="/">Home</Nav.Link>
-                        <Nav.Link className="nav-link" href="/about">About Us</Nav.Link>
+                        <Nav.Link className="nav-link" href="/">HOME</Nav.Link>
+                        <Nav.Link className="nav-link" href="/about">ABOUT US</Nav.Link>
                         
                         {   
                              userInfo || labInfo ?(
@@ -63,10 +63,13 @@ const Header = (props) => {
                                 
                             ):
                             (
-                                <div className="registration">
-                                    
-                                    <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
-                                    <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
+                                <div className="registration" id="flex-container">
+                                    <div>
+                                        <Nav.Link className="nav-link" href="/login">LOGIN</Nav.Link>
+                                    </div>
+                                    <div>
+                                        <Nav.Link className="nav-link" href="/register">REGISTER</Nav.Link>
+                                    </div>
                                 </div>
                             )
                         }

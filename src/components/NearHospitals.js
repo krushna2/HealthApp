@@ -14,14 +14,12 @@ const NearHospital = () => {
                 loading?<div>Loading...Please wait</div>:
                 hospitals.map(hospital => 
                     <Animated key={hospital.id} >
-                            <Container style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",marginTop:"2vh",paddingTop:"2vh"}}>
+                            <Container >
                                 <Row>
-                                    <Col md={12} sm={12}>
+                                    <Col md={12} sm={12} style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",marginTop:"2vh",paddingTop:"2vh"}}>
                                         <div>
-                                            <h5>Hospital Name : {hospital.title}</h5> 
+                                            <h5>Hospital Name : {hospital.title}</h5>
                                         </div>
-                                    </Col>
-                                    <Col md={12} sm={12}>
                                         <div>
                                             <h5> Address: {hospital.address.label}</h5>
                                         </div>
