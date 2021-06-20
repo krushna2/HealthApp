@@ -7,31 +7,8 @@ import Button from "@material-ui/core/Button";
 import { listHospitals } from '../actions/userActions';
 
 const Hospitals = (props) => {
-<<<<<<< HEAD
-    const [latitude, setLat] = useState(0.0);
-    const [longitude, setLog] = useState(0.0);
-    var crd="";
-
-    function success(pos) {
-        var crd = pos.coords;
-      
-        console.log('Your current position is:');
-        console.log(`Latitude : ${crd.latitude}`);
-        console.log(`Longitude: ${crd.longitude}`);
-        setLat(crd.latitude);
-        setLog(crd.longitude);
-        console.log(`More or less ${crd.accuracy} meters.`);
-      }
-      
-      function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-      }
-    // const [lat, setLat] = useState(0);
-    // const [log, setLog] = useState(0);
-=======
     const [lat, setLat] = useState(0.0);
     const [log, setLog] = useState(0.0);
->>>>>>> 692b2cb481ea58cec9b74f6352d6bae3de05a53c
   
     const findPosition=()=>{
         if (navigator.geolocation) {
