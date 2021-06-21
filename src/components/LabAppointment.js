@@ -76,28 +76,28 @@ const LabAppointment = (props) => {
                 loading ? <div>Loading...</div>:
                     appointmentList.map(appointment =>
                         <Animated key={appointment._id} >
-                            <Container style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",marginTop:"2vh",paddingTop:"2vh"}}>
-                                <Row>
+                            <Container >
+                                <Row style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",marginTop:"2vh",paddingTop:"2vh"}}> 
                                     <Col md={6} sm={6}>
                                         <div>
-                                            <h5>User Name: {appointment.name} </h5> 
+                                            <h5>User Name: <span style={{fontWeight:"normal"}}>{appointment.name}</span> </h5> 
                                         </div>
                                     </Col>
                                     <Col md={6} sm={6}>
                                         <div>
-                                            <h5> Email: {appointment.email} </h5>
+                                            <h5> Email: <span style={{fontWeight:"normal"}}>{appointment.email}</span> </h5>
                                         </div>
                                     </Col>
                                     <Col md={6} sm={6}>
                                         <div>
-                                            <h5> Contact No: {appointment.mobileNum} </h5>
+                                            <h5> Contact No: <span style={{fontWeight:"normal"}}>{appointment.mobileNum}</span> </h5>
                                         </div>
                                     </Col>
                                     <Col md={12} sm={12}>
                                             {
                                                 appointment.isAccepted?
                                                 <div>
-                                                    <Button type="button" style={{marginTop:"2vh",height:"7vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}}
+                                                    <Button type="button" style={{marginTop:"2vh",height:"5vh",backgroundColor:"#a5c422",color:"white",marginBottom:"2vh"}}
                                                     onClick={()=>uploadHandler(appointment)} variant="contained" >Upload</Button>
                                                 </div>:
                                                 <div>

@@ -31,26 +31,28 @@ const Lab = () => {
                 loading?<div>Loading...Please Wait...</div>:
                 labs.map( lab =>
                     <Animated key={lab._id} >
-                        <Container style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",marginTop:"2vh",paddingTop:"2vh"}}>
-                            <Row>
+                        <div style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",marginTop:"2vh",paddingTop:"2vh"}}>
+                        <Container >
+                            <Row >
+                                
                                 <Col md={6} sm={6}>
                                     <div>
-                                        <h5>Lab Name: {lab.labName} </h5> 
+                                        <h5>Lab Name: <span style={{fontWeight:"normal"}}>{lab.labName}</span> </h5> 
                                     </div>
                                 </Col>
                                 <Col md={6} sm={6}>
                                     <div>
-                                        <h5>Lab Location: {lab.labLocation} </h5> 
+                                        <h5>Lab Location: <span style={{fontWeight:"normal"}}>{lab.labLocation}</span> </h5> 
                                     </div>
                                 </Col>
                                 <Col md={6} sm={6}>
                                     <div>
-                                        <h5>Lab Contact: {lab.labContact} </h5>
+                                        <h5>Lab Contact: <span style={{fontWeight:"normal"}}>{lab.labContact}</span> </h5>
                                     </div>
                                 </Col>
                                 <Col md={6} sm={6}>
                                     <div>
-                                        <h5>Lab Address: {lab.labAddress} </h5>
+                                        <h5>Lab Address: <span style={{fontWeight:"normal"}}>{lab.labAddress}</span> </h5>
                                     </div>
                                 </Col>
                                 <Col md={12} sm={12}>
@@ -59,9 +61,10 @@ const Lab = () => {
                                          onClick={() => requestHandler(lab._id,userInfo)} variant="contained">Make Request</Button>
                                     </div>
                                 </Col>
-
+                                
                             </Row>
                         </Container>
+                        </div>
                     </Animated>
                 )
             }

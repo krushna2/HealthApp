@@ -28,7 +28,7 @@ const LabDashboard = (props) => {
                             <Button href="/home" style={{backgroundColor:"#a5c422",color:"white",border:"none",marginTop:"4vh",marginRight:"2vw",marginLeft:"2vw",height:"6vh"}} onClick={logoutHandler} >Logout</Button>
                         </Nav>
                     </Col>
-                    <Col md={6} sm={6}>
+                    <Col md={6} sm={6} style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
                         <div style={{textAlign:"center"}}>
                             <AccountCircleOutlinedIcon style={{height:"10vh",width:"10vw"}}></AccountCircleOutlinedIcon>
                             <h3 >Lab Profile</h3>
@@ -36,19 +36,19 @@ const LabDashboard = (props) => {
                         
                         <div className="user-info" style={{marginTop:"5vh"}}>
                             <div className="user-field">
-                                <h4>Name : {labInfo.labName} </h4>
+                                <h4>Name : <span style={{fontWeight:"normal"}}>{labInfo.labName}</span> </h4>
                             </div>
                             <div className="user-field">
-                                <h4>Email : {labInfo.labEmail} </h4>                                
+                                <h4>Email : <span style={{fontWeight:"normal"}}>{labInfo.labEmail}</span> </h4>                                
                             </div>
                             <div className="user-field">
-                                <h4>Contact No : {labInfo.labContact} </h4>                                
+                                <h4>Contact No : <span style={{fontWeight:"normal"}}>{labInfo.labContact}</span> </h4>                                
                             </div>
                             <div className="user-field">
-                                <h4>Address: <span>{labInfo.labAddress}</span></h4>                                
+                                <h4>Address: <span style={{fontWeight:"normal"}}>{labInfo.labAddress}</span></h4>                                
                             </div>
                             <div className="user-field">
-                                <h4>Location: <span>{labInfo.labLocation}</span></h4>                                
+                                <h4>Location: <span style={{fontWeight:"normal"}}>{labInfo.labLocation}</span></h4>                                
                             </div>
                         </div>
                     </Col>
